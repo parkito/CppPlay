@@ -47,6 +47,20 @@ int main() {
     modByRef(i2);
 
     cout << i1 << " " << i2;
+
+    int x = 2;
+    int y = 3;
+    int *p = &x;
+    int *q = &y; // now p!=q and *p!=*q
+    p = q; // p becomes &y; now p==q, so (obviously)*p == *q
+
+    int x1 = 7;
+    int &r{x1};
+    r += 7;
+//    int &r2; //incorrect binding
+//    r2 = 99;
+    cout << endl << x1 << endl << r;
+
     return 0;
 }
 
