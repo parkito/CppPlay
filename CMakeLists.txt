@@ -30,7 +30,7 @@ CPMAddPackage(
   VERSION 1.3
 )
 
-# ---- Add source files ----
+# ---- Add src files ----
 
 # Note: globbing sources is considered bad practice as CMake's generators may not detect new files
 # automatically. Keep that in mind when changing files, or explicitly mention them here.
