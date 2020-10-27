@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
 
 project(GreeterStandalone LANGUAGES CXX)
 
@@ -19,6 +19,8 @@ CPMAddPackage(
 
 CPMAddPackage(NAME Greeter SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR}/..)
 
+set(CMAKE_CXX_STANDARD 17)
+
 # ---- Create standalone executable ----
 
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
@@ -37,7 +39,3 @@ add_executable(main9 src/basics/09_exceptions.cpp)
 add_executable(main10 src/basics/10_asserts.cpp)
 add_executable(main11 src/basics/11_returning.cpp)
 add_executable(main12 src/basics/12_binding.cpp)
-
-set_target_properties(GreeterStandalone PROPERTIES CXX_STANDARD 17 OUTPUT_NAME "Greeter")
-
-target_link_libraries(GreeterStandalone Greeter cxxopts)

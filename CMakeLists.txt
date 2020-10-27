@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
 
 # ---- Project ----
 
@@ -45,7 +45,7 @@ file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/
 
 add_library(Greeter ${headers} ${sources})
 
-set_target_properties(Greeter PROPERTIES CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 17)
 
 # being a cross-platform target, we enforce standards conformance on MSVC
 target_compile_options(Greeter PUBLIC "$<$<BOOL:${MSVC}>:/permissive->")
