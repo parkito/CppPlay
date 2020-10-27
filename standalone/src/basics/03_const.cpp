@@ -1,5 +1,5 @@
-#include <iostream>
 #include <cmath>
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -27,44 +27,42 @@ The value of a constexpr must be calculated by the compiler.
  */
 
 int main() {
-    constexpr int dmv = 17;
-//    dmv=10; incorrect
-    double var = 17;
-    add(var);
-    cout << var;
+  constexpr int dmv = 17;
+  //    dmv=10; incorrect
+  double var = 17;
+  add(var);
+  cout << var;
 
-    const double sqv = sqrt(var);
-//    add(sqv); incorrect
-//    sqv = 4; incorrect
-    vector<double> v{1.2, 3.4, 4.5};
+  const double sqv = sqrt(var);
+  //    add(sqv); incorrect
+  //    sqv = 4; incorrect
+  vector<double> v{1.2, 3.4, 4.5};
 
-    const double s1 = sum(v); //calculated in runtime
-//    constexpr double s2 = sum(v); //calculated by the compiler
-//    constexpr double conEx = nth(1, 5);
+  const double s1 = sum(v);  // calculated in runtime
+  //    constexpr double s2 = sum(v); //calculated by the compiler
+  const double conEx = nth(1, 5);
 
-    return 0;
+  return 0;
 }
 
-void add(double &value) {
-    value++;
-}
+void add(double &value) { value++; }
 
 double sum(const vector<double> &vector) {
-    double result = 0;
-    for (double i : vector) {
-        result += i;
-    }
-    return result;
+  double result = 0;
+  for (double i : vector) {
+    result += i;
+  }
+  return result;
 }
 
-//A constexpr function is one whose return value can be computed at compile time
+// A constexpr function is one whose return value can be computed at compile time
 // when consuming code requires it.
 constexpr double nth(double x, int n) {
-    double res = 1;
-    int i = 0;
-    while (i < n) {
-        res *= x;
-        ++i;
-    }
-    return res;
+  double res = 1;
+  int i = 0;
+  while (i < n) {
+    res *= x;
+    ++i;
+  }
+  return res;
 }
