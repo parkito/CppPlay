@@ -1,16 +1,11 @@
 #include <iostream>
-#include <vector>
+
+#include "ExpressionCalculator.h"
 
 using namespace std;
-
-class Data {
-public:
-
-
-public:
-};
-
 int main() {
-  cout << 1;
+  ExpressionCalculator calc1 = ExpressionCalculator("1+1");
+
+  cout << calc1.calculate();
   return 0;
 }

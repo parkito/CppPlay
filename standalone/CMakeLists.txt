@@ -25,7 +25,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 file(GLOB sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
 
-add_executable(GreeterStandalone ${sources} src/algo/1/Calculator.cpp src/algo/1/ExpressionHolder.h src/algo/1/ExpressionHolder.cpp src/algo/1/Operator.h)
+add_executable(GreeterStandalone ${sources} src/algo/1/Calculator.cpp src/algo/1/ExpressionHolder.h src/algo/1/ExpressionHolder.cpp src/algo/1/Operator.h src/algo/1/ExpressionCalculator.h src/algo/1/ExpressionCalculator.cpp src/algo/1/Operator.cpp)
 
 add_executable(main1 src/basics/01_hello.cpp)
 add_executable(main2 src/basics/02_type.cpp)
