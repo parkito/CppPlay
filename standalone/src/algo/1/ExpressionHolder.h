@@ -2,14 +2,14 @@
 #include <string>
 #include <vector>
 
-#include "Operator.h"
+#include "Operators.h"
 
 class ExpressionHolder {
 public:
   void AddValue(int value);
-  void AddOperator(Operator op);
+  void AddOperator(Operators op);
 
 private:
   std::vector<int> values;
-  std::vector<Operator> ops;
+  std::vector<Operators> ops;
 };

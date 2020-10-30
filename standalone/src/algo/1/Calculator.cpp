@@ -4,8 +4,11 @@
 
 using namespace std;
 int main() {
-  ExpressionCalculator calc1 = ExpressionCalculator("1+1");
+  //  ExpressionCalculator calc1 = ExpressionCalculator("(1+1)+(3*4)");
+  //  cout << calc1.Calculate();
 
-  cout << calc1.calculate();
+  std::map<char, Operators> map = Operators::operatorMap;
+  map['+'].
+  cout << " ";
   return 0;
 }
