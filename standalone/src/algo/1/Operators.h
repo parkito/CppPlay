@@ -13,7 +13,7 @@ public:
   static const Operator BRACE_OPEN;
   static const Operator BRACE_CLOSE;
 
-  typedef std::map<const char, Operator> OperatorMap;
-
-  static const OperatorMap operatorMap;
+//  typedef std::map<const char, Operator> OperatorMap;
+//
+//  static const OperatorMap operatorMap;
 };

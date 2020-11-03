@@ -4,12 +4,6 @@
 
 using namespace std;
 
-double sum(const std::vector<double> &vector);
-
-void add(double &value);
-
-constexpr double nth(double x, int n);
-
 /*
  C++ supports two notions of immutability:
  const: meaning roughly ‘I promise not to change this value.’
@@ -19,12 +13,71 @@ without fear of it being modified.
 The compiler enforces the promise made by const.
 The value of a const can be calculated at run time.
 
- constexpr: meaning roughly ‘to be evaluated at compile time.’
+ */
+
+void f1(const std::string &s, std::string &s1) {
+  //  s = "";  //error
+  s1 = "";
+}
+void f2(const std::string *sptr, std::string *sptr1) {
+  //  sptr->append(""); //error
+  sptr1->append("");
+}
+void f3(std::string s) {}  // pass by value
+
+void g1(std::string &s);
+
+void f5(const std::string &s) {
+  // g1(s);          // Compile-time Error since s is const
+  std::string localCopy = s;
+  g1(localCopy);  // Okay since localCopy is not const
+}
+
+class Bar {
+public:
+  int getBar()
+  {
+    const Bar foo = Bar();
+    return foo.increment();    //OK
+    //return foo.increment1();    // ERROR: non-const method be called on const variable
+  }
+
+  int foo(const int* bar)
+  {
+    //bar[0] += 4;        // ERROR: const variable cannot be modified
+    return bar[0];      // OK: member variable won't be modified here
+  }
+
+private:
+  int value;
+  int increment() const;
+  int increment1();
+};
+
+//The compiler will enforce this statement by not allowing you to modify THIS
+// and any of its members from within the scope of such a const qualified method
+int Bar::increment() const {
+  //  value++;  error
+  return 0;
+}
+
+int Bar::increment1() {
+  value++;
+  return value;
+}
+
+/*constexpr: meaning roughly ‘to be evaluated at compile time.’
 This is used primarily to specify constants,
 to allow placement of data in read-only memory
 (where it is unlikely to be corrupted), and for performance.
 The value of a constexpr must be calculated by the compiler.
  */
+
+double sum(const std::vector<double> &vector);
+
+void add(double &value);
+
+constexpr double nth(double x, int n);
 
 int main() {
   constexpr int dmv = 17;
