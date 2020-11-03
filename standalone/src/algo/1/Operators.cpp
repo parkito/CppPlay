@@ -1,17 +1,17 @@
 #include "Operators.h"
 
-const Operators Operators::PLUS = Operators('+', 1);
-const Operators Operators::MINUS = Operators('-', 1);
-const Operators Operators::MULTIPLY = Operators('*', 2);
-const Operators Operators::DEVIDE = Operators('/', 2);
-const Operators Operators::BRACE_OPEN = Operators('(', 1);
-const Operators Operators::BRACE_CLOSE = Operators(')', 3);
+static const auto PLUS =  Operator('+', 1);
+static const auto MINUS = Operator('-', 1);
+static const auto MULTIPLY = Operator('*', 2);
+static const auto DEVIDE = Operator('/', 2);
+static const auto BRACE_OPEN = Operator('(', 1);
+static const  auto BRACE_CLOSE = Operator(')', 3);
 
-const Operators::OperatorMap Operators::operatorMap = {
-    {Operators::PLUS.sym, Operators::PLUS},
-    {Operators::MINUS.sym, Operators::MINUS},
-    {Operators::MULTIPLY.sym, Operators::MULTIPLY},
-    {Operators::DEVIDE.sym, Operators::DEVIDE},
-    {Operators::BRACE_OPEN.sym, Operators::BRACE_OPEN},
-    {Operators::BRACE_CLOSE.sym, Operators::BRACE_CLOSE},
+const Operators::OperatorMap Operators::operatorMap =  {
+      {PLUS.GetOperator(), Operators::PLUS},
+      {MINUS.GetOperator(), Operators::MINUS},
+      {MULTIPLY.GetOperator(), Operators::MULTIPLY},
+      {DEVIDE.GetOperator(), Operators::DEVIDE},
+      {BRACE_OPEN.GetOperator(), Operators::BRACE_OPEN},
+      {BRACE_CLOSE.GetOperator(), Operators::BRACE_CLOSE},
 };

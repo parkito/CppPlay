@@ -2,20 +2,18 @@
 
 #include <map>
 
+#include "Operator.h"
+
 class Operators {
 public:
-  static const Operators PLUS;
-  static const Operators MINUS;
-  static const Operators MULTIPLY;
-  static const Operators DEVIDE;
-  static const Operators BRACE_OPEN;
-  static const Operators BRACE_CLOSE;
+  static const Operator PLUS;
+  static const Operator MINUS;
+  static const Operator MULTIPLY;
+  static const Operator DEVIDE;
+  static const Operator BRACE_OPEN;
+  static const Operator BRACE_CLOSE;
 
-  typedef std::map<char, Operators> OperatorMap;
+  typedef std::map<const char, Operator> OperatorMap;
+
   static const OperatorMap operatorMap;
-
-private:
-  const char sym;
-  const int priority;
-  Operators(char sym, int priority) : sym(sym), priority(priority){};
 };

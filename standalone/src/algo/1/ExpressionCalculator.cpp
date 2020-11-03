@@ -10,11 +10,11 @@ ExpressionHolder ExpressionCalculator::ToHolder(std::string& expression) {
 }
 
 void ParseSymbol(ExpressionHolder holder, char sym) {
-  std::map<char, Operators> map = Operators::operatorMap;
-  Operators op = map[sym];
-  if (auto it = map.find(sym); it != map.end()) {
-    holder.AddOperator(it->second);
-    return;
-  }
-  holder.AddValue((int)sym);
+//  std::map<char, Operators> map = Operators::operatorMap;
+//  Operators op = map[sym];
+//  if (auto it = map.find(sym); it != map.end()) {
+//    holder.AddOperator(it->second);
+//    return;
+//  }
+//  holder.AddValue((int)sym);
 }
