@@ -35,17 +35,29 @@ void f5(const std::string &s) {
 
 class Bar {
 public:
-  int getBar()
-  {
+  int getBar() {
     const Bar foo = Bar();
-    return foo.increment();    //OK
-    //return foo.increment1();    // ERROR: non-const method be called on const variable
+    return foo.increment();  // OK
+    // return foo.increment1();    // ERROR: non-const method be called on const variable
   }
 
-  int foo(const int* bar)
-  {
-    //bar[0] += 4;        // ERROR: const variable cannot be modified
-    return bar[0];      // OK: member variable won't be modified here
+  int foo(const int *bar) {
+    // bar[0] += 4;        // ERROR: const variable cannot be modified
+    return bar[0];  // OK: member variable won't be modified here
+  }
+
+  int foo1() {
+    char *mybuf1 = 0, *yourbuf;
+    char *const aptr = mybuf1;
+    *aptr = 'a';  // OK
+    // aptr = yourbuf;   // error
+
+    const char *mybuf = "test";
+    char *yourbuf1 = "test2";
+
+    const char *bptr = mybuf;     // Pointer to constant data
+    const char *bptr1 = yourbuf;  // Pointer to NOT constant data
+    // *bptr = 'a';   // Error
   }
 
 private:
@@ -54,7 +66,7 @@ private:
   int increment1();
 };
 
-//The compiler will enforce this statement by not allowing you to modify THIS
+// The compiler will enforce this statement by not allowing you to modify THIS
 // and any of its members from within the scope of such a const qualified method
 int Bar::increment() const {
   //  value++;  error
