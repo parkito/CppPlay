@@ -60,11 +60,24 @@ int main() {
   return 0;
 }
 
-int count_x(const char *p, char x)
+int count_x(char *p, char x)
 // count the number of occurrences of x in p[]
 // p is assumed to point to a zero-terminated array of char (or to nothing)
 {
   if (p == nullptr) return 0;
+
+  // Pointer moves to the next int position (as if it was an array)
+  p++;
+  // Pointer moves to the next int position (as if it was an array)
+  ++p;
+
+  /* All the following three cases are same they increment the value
+   * of variable that the pointer p points.
+   */
+  ++*p;
+  ++(*p);
+  ++*(p);
+
   int count = 0;
   while (*p) {
     if (*p == x) ++count;
