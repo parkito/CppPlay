@@ -43,7 +43,7 @@ file(GLOB_RECURSE sources CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/source/
 # target: add_library(Greeter INTERFACE) set_target_properties(Greeter PROPERTIES
 # INTERFACE_COMPILE_FEATURES cxx_std_17)
 
-add_library(Greeter ${headers} ${sources})
+add_library(Greeter ${headers} ${sources} cmake-tutorial/main.cpp)
 
 set(CMAKE_CXX_STANDARD 17)
 
