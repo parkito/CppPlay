@@ -1,7 +1,5 @@
 #include "operations.h"
 
-#include <exception>
-#include <iostream>
 #include <stdexcept>
 
 int math::operations::sum(const int &a, const int &b) { return a + b; }
