@@ -1,7 +1,7 @@
 // static_cast can be used to convert between pointers
 // to related classes (up or down the inheritance hierarchy).
 // It can also perform implicit conversions.
-// static_cast doesn’t perform any checks
+// static_cast doesn't’t perform any checks
 // static_cast won’t let you convert between two unrelated classes
 
 // dynamic_cast is related to static_cast in the sense it helps to cast through inheritance,
@@ -22,6 +22,21 @@
 // This cast converts any type of pointer to any other type of pointer,
 // even unrelated types. No checks are performed.
 // It simply copies the binary data from one pointer to another
+
+//(type) object; // c-style cast
+// type(object); // function-style cast
+//
+// These two are functionally equivalent and perform the followings in that order until one succeeds
+//
+// const_cast
+// static_cast (ignoring access restrictions)
+// static_cast , then const_cast
+// reinterpret_cast
+// reinterpret_cast, then const_cast
+
+// It’s better not to use these two because of the fact that they can invoke reinterpret_cast,
+// unless you’re 100% sure static_cast will succeed. Even then, it’s better to explicitly use
+// static_cast
 
 #include <iostream>
 class Mammal {
@@ -63,8 +78,7 @@ int main() {
   int *p = const_cast<int *>(&i1);
   *p = 4;  // undefined behavior
 
-
-  reinterpret_cast<unsigned int&>(i) = 42;
+  reinterpret_cast<unsigned int &>(i) = 42;
   std::cout << i << '\n';
   return 0;
 }
