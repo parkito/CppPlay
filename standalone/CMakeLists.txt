@@ -1,7 +1,12 @@
-cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.17 FATAL_ERROR)
 
 project(GreeterStandalone LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
+set(CXXFLAGS ${CXXFLAGS} -std=c++2a)
+
+add_compile_options(-std=c++2a)
+#add_subdirectory(src/chapters/lib/fmt)
+find_package(fmt)
 
 add_executable(GreeterStandalone ${sources} src/algo/1/Calculator.cpp)
 
@@ -21,3 +26,5 @@ add_executable(main12 src/basics/12_binding.cpp)
 add_executable(main13 src/basics/13_container.cpp)
 add_executable(main14 src/basics/14_casting.cpp)
 add_executable(main15 src/basics/15_inheritance.cpp)
+
+add_executable(chapters1 src/chapters/chapter_02/Ex2_05.cpp)
