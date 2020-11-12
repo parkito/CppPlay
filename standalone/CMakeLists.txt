@@ -5,10 +5,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(CXXFLAGS ${CXXFLAGS} -std=c++2a)
 
 add_compile_options(-std=c++2a)
-#add_subdirectory(src/chapters/lib/fmt)
-find_package(fmt)
 
-add_executable(GreeterStandalone ${sources} src/algo/1/Calculator.cpp)
+add_executable(GreeterStandalone ${sources} src/algo/1/Calculator.cpp src/algo/1/Planet.cpp)
 
 add_executable(main1 src/basics/01_hello.cpp)
 add_executable(main2 src/basics/02_type.cpp)
@@ -27,4 +25,6 @@ add_executable(main13 src/basics/13_container.cpp)
 add_executable(main14 src/basics/14_casting.cpp)
 add_executable(main15 src/basics/15_inheritance.cpp)
 
-add_executable(chapters1 src/chapters/chapter_02/Ex2_05.cpp)
+add_executable(chapters_2_1 src/chapters/chapter_02/Ex2_05.cpp)
+add_executable(chapters_2_2 src/chapters/chapter_02/Exer2_8.cpp)
+add_executable(chapters_3_1 src/chapters/chapter_03/Ex3_03.cpp)

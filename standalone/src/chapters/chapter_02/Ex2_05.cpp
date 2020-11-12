@@ -22,6 +22,32 @@ int main() {
   std::cout << length << " yards converts to " << yards << " yards " << feet << " feet " << inches
             << " inches." << std::endl;
 
-  std::cout << std::numeric_limits<long double>::min() << std::endl
+  std::cout << "The range for type short is from {} to {}\n"
+            << std::endl
+            << std::numeric_limits<short>::min() << std::endl
+            << std::numeric_limits<short>::max() << std::endl
+            << "The range for type unsigned int is from {} to {}\n"
+            << std::endl
+            << std::numeric_limits<unsigned int>::min() << std::endl
+            << std::numeric_limits<unsigned int>::max() << std::endl
+            << "The range for type long is from {} to {}\n"
+            << std::endl
+            << std::numeric_limits<long>::min() << std::endl
+            << std::numeric_limits<long>::max() << std::endl
+            << "The positive range for type float is from {} to {}\n"
+            << std::endl
+            << std::numeric_limits<float>::min() << std::endl
+            << std::numeric_limits<float>::max() << std::endl
+            << "The full range for type float is from {} to {}\n"
+            << std::endl
+            << std::numeric_limits<float>::lowest() << std::endl
+            << std::numeric_limits<float>::max() << std::endl
+            << "The positive range for type double is from {} to {}\n"
+            << std::endl
+            << std::numeric_limits<double>::min() << std::endl
+            << std::numeric_limits<double>::max() << std::endl
+            << "The positive range for type long double is from {} to {}\n"
+            << std::endl
+            << std::numeric_limits<long double>::min() << std::endl
             << std::numeric_limits<long double>::max();
 }

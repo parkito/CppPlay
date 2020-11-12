@@ -1,12 +1,22 @@
 #pragma once
+#include <map>
 
-class Operator{
+class Operator {
 public:
-  Operator(char sym, int priority) : sym(sym), priority(priority){}
+  static const Operator PLUS;
+  static const Operator MINUS;
+  static const Operator MULTIPLY;
+  static const Operator DEVIDE;
+  static const Operator BRACE_OPEN;
+  static const Operator BRACE_CLOSE;
+  static const std::map<char, Operator>* operatorMap;
 
-  char GetOperator() const;
-  int GetPriority() const;
+  char GetOperator();
+  int GetPriority();
+
 private:
   const char sym;
   const int priority;
+
+  Operator(char sym, int priority);
 };
