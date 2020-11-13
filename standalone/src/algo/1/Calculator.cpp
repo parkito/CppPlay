@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Planet.h"
+
 #include "Operator.h"
 
 using namespace std;
@@ -9,7 +9,9 @@ int main() {
   //  cout << calc1.Calculate();
 
   //  std::map<char, Operators> map = Operators::operatorMap;
-//  Operator op = Operator::;
+  Operator op = Operator::DEVIDE;
+  std::cout << op.GetOperator();
+  std::cout << op.GetPriority();
   //  cout << op.GetOperator();
   //  TestCls cls = TestCls();
   //  std::cout << cls.func();
@@ -17,6 +19,5 @@ int main() {
   //  for (auto x : *Operator::operatorMap) {
   //    std::cout << x.first;
   //  }
-  std::cout<<PLANET_MERCURY.mass();
   return 0;
 }

@@ -9,7 +9,7 @@ public:
   static const Operator DEVIDE;
   static const Operator BRACE_OPEN;
   static const Operator BRACE_CLOSE;
-  static const std::map<char, Operator>* operatorMap;
+//  static const std::map<char, Operator>* operatorMap;
 
   char GetOperator();
   int GetPriority();

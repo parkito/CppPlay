@@ -6,7 +6,7 @@ set(CXXFLAGS ${CXXFLAGS} -std=c++2a)
 
 add_compile_options(-std=c++2a)
 
-add_executable(GreeterStandalone ${sources} src/algo/1/Calculator.cpp src/algo/1/Planet.cpp)
+add_executable(GreeterStandalone ${sources} src/algo/1/Calculator.cpp src/algo/1/Operator.cpp)
 
 add_executable(main1 src/basics/01_hello.cpp)
 add_executable(main2 src/basics/02_type.cpp)
