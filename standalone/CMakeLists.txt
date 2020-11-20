@@ -24,6 +24,8 @@ add_executable(main12 src/basics/12_binding.cpp)
 add_executable(main13 src/basics/13_container.cpp)
 add_executable(main14 src/basics/14_casting.cpp)
 add_executable(main15 src/basics/15_inheritance.cpp)
+add_executable(main16 src/basics/16_cstring.cpp)
+add_executable(main17 src/basics/17_array_allocation.cpp)
 
 add_executable(chapters_2_1 src/chapters/chapter_02/Ex2_05.cpp)
 add_executable(chapters_2_2 src/chapters/chapter_02/Exer2_8.cpp)

@@ -1,6 +1,5 @@
 // Operations with enumerations
 #include <iostream>
-
 int main() {
   enum class Day { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday };
   Day yesterday{Day::Monday}, today{Day::Tuesday}, tomorrow{Day::Wednesday};
@@ -24,5 +23,5 @@ int main() {
 
   //   ch = tomorrow;             /* Uncomment any of these for an error */
   //   tomorrow = Friday;
-  //   today = 6;
+  //   today = 6;s
 }
