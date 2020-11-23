@@ -1,17 +1,18 @@
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
-project(GreeterStandalone LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
-set(CXXFLAGS ${CXXFLAGS} -std=c++2a)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+#set(CXXFLAGS ${CXXFLAGS} -std=c++2a)
 add_compile_options(-std=c++2a)
-set(CMAKE_CXX_COMPILER "/usr/bin/g++")
-message("${CMAKE_CXX_COMPILER_VERSION}")
+message("Version ${CMAKE_CXX_COMPILER_VERSION}")
 
 add_executable(GreeterStandalone ${sources} src/algo/1/Calculator.cpp src/algo/1/Operator.cpp)
 
-add_executable(main1 src/basics/01_hello.cpp)
+add_executable(main1 src/basics/01_hello.cpp src/basics/20_vacabluary.cpp)
 add_executable(main2 src/basics/02_type.cpp)
-add_executable(main3 src/basics/03_const.cpp)
+#add_executable(main3 src/basics/03_const.cpp)
 add_executable(main4_1 src/basics/04_1_references.cpp)
 add_executable(main4 src/basics/04_pointers.cpp)
 add_executable(main5 src/basics/05_switch.cpp)
@@ -28,10 +29,8 @@ add_executable(main15 src/basics/15_inheritance.cpp)
 add_executable(main16 src/basics/16_cstring.cpp)
 add_executable(main17 src/basics/17_array_allocation.cpp)
 add_executable(main18 src/basics/18_smart_pointers.cpp)
+add_executable(main19 src/basics/19_strings.cpp)
 
 add_executable(chapters_2_1 src/chapters/chapter_02/Ex2_05.cpp)
 add_executable(chapters_2_2 src/chapters/chapter_02/Exer2_8.cpp)
 add_executable(chapters_3_1 src/chapters/chapter_03/Ex3_03.cpp)
-
-target_compile_features(main1 PRIVATE cxx_std_20)
-

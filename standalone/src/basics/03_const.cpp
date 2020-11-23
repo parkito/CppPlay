@@ -58,6 +58,7 @@ public:
     const char *bptr = mybuf;     // Pointer to constant data
     const char *bptr1 = yourbuf;  // Pointer to NOT constant data
     // *bptr = 'a';   // Error
+    return 0;
   }
 
 private:

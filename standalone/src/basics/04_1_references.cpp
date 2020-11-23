@@ -1,9 +1,6 @@
 #include <iostream>
 
-int fun(int &x)
-{
-  return x;
-}
+int fun(int& x) { return x; }
 
 int main() {
   int a = 10;
@@ -19,7 +16,7 @@ int main() {
   std::cout << pointer << " " << *pointer << " " << ref << " " << &ref << " values " << a << " "
             << b;
 
-//  fun(1); error. not l value
+  //  fun(1); error. not l value
   fun(a);
   return 0;
 }
@@ -27,12 +24,11 @@ int main() {
 // ref is a reference to the argument passed in, not a copy
 void changeN(int& ref) { ref = 6; }
 
-
 // References are less powerful than pointers
 // 1) Once a reference is created, it cannot be later made to reference another object; it cannot be
 // reseated. This is often done with pointers. 2) References cannot be NULL. Pointers are often made
-// NULL to indicate that they are not pointing to any valid thing. 3) A reference must be initialized
-// when declared.
+// NULL to indicate that they are not pointing to any valid thing. 3) A reference must be
+// initialized when declared.
 
 // 1) Safer: Since references must be initialized, wild references like wild pointers are unlikely
 // to exist. It is still possible to have references that don’t refer to a valid location 2) Easier
