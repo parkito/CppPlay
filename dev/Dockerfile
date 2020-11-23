@@ -7,7 +7,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     software-properties-common apt-utils openssh-server build-essential gdb gdbserver rsync vim cmake
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 RUN apt-get update && apt-get install -y gcc-9 g++-9 gcc-10 g++-10 \
-    libboost-dev libboost-all-dev manpages-dev stl-manual libloki-dev
+    libboost-dev libboost-all-dev manpages-dev stl-manual libloki-dev libspdlog-dev
 
 RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 9
 RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 9

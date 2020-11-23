@@ -1,11 +1,9 @@
-#include <spdlog/spdlog.h>
+#include <cstdio>
 
+#include "spdlog/spdlog.h"
 #include "lib.h"
 
 int main() {
-  spdlog::
-  auto logger = spdlog::stdout_logger_mt("console");
-  logger->info("version {} was started", version());
-
-  return 0;
+    spdlog::critical("Support for int: {0:d};  hex: {0:x};  oct: {0:o}; bin: {0:b}", 42);
+    return 0;
 }
