@@ -4,7 +4,7 @@ ENV TZ=Europe/London
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
-    software-properties-common apt-utils openssh-server build-essential gdb gdbserver rsync vim cmake
+    software-properties-common apt-utils openssh-server build-essential gdb gdbserver rsync vim cmake fish
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 RUN apt-get update && apt-get install -y gcc-9 g++-9 gcc-10 g++-10 \
     libboost-dev libboost-all-dev manpages-dev stl-manual libloki-dev libspdlog-dev

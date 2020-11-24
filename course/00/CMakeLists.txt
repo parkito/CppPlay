@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(cmake VERSION 0.0.1)
+project(cli VERSION 0.0.1)
 
 find_package(Threads REQUIRED)
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
@@ -56,3 +56,5 @@ include(CPack)
 enable_testing()
 
 add_test(cli_lib_tests test_version)
+
+#cmake -H. -Bcmake-build-debug && cd cmake-build-debug && make all && make package
