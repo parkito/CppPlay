@@ -1,24 +1,22 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.16)
 
-project(cmake VERSION 0.0)
+project(cmake VERSION 0.0.1)
 
 find_package(Threads REQUIRED)
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 find_package(spdlog REQUIRED)
 
+configure_file(Ops/version.h.in ${PROJECT_SOURCE_DIR}/Sources/Main/Version.h)
 
-configure_file(version.h.in ${PROJECT_SOURCE_DIR}/version.h)
+add_executable(cli Sources/Main/Main.cpp)
 
-add_executable(helloworld_cli main.cpp)
+add_library(cli_lib Sources/Main/Lib.cpp)
 
-add_library(helloworld lib.cpp)
+add_executable(test_version Tests/test_version.cpp)
 
-add_executable(test_version test_version.cpp)
+include_directories(include)
 
-#add_executable(example example.cpp)
-#target_link_libraries(example PRIVATE spdlog::spdlog)
-
-set_target_properties(helloworld_cli helloworld test_version PROPERTIES
+set_target_properties(cli cli_lib test_version PROPERTIES
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
         COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
@@ -29,17 +27,19 @@ set_target_properties(test_version PROPERTIES
         INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
         )
 
-target_link_libraries(helloworld_cli
-        helloworld
+target_link_libraries(cli
+        spdlog::spdlog
+        cli_lib
         Threads::Threads
         )
 
 target_link_libraries(test_version
+        spdlog::spdlog
         ${Boost_LIBRARIES}
-        helloworld
+        cli_lib
         )
 
-install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
+install(TARGETS cli RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 
@@ -47,7 +47,7 @@ set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
 set(CPACK_PACKAGE_VERSION_PATCH "${PROJECT_VERSION_PATCH}")
 
-set(CPACK_PACKAGE_CONTACT shebdim@gmail.com)
+set(CPACK_PACKAGE_CONTACT artyom-karnov@yandex.ru)
 
 set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
 
@@ -55,4 +55,4 @@ include(CPack)
 
 enable_testing()
 
-add_test(helloworld_tests test_version)
+add_test(cli_lib_tests test_version)
