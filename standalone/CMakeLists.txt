@@ -31,6 +31,7 @@ add_executable(main17 src/basics/17_array_allocation.cpp)
 add_executable(main18 src/basics/18_smart_pointers.cpp)
 add_executable(main19 src/basics/19_strings.cpp)
 add_executable(main21 src/basics/21_templates.cpp)
+add_executable(main22 src/basics/22_lambdas.cpp)
 
 add_executable(chapters_2_1 src/chapters/chapter_02/Ex2_05.cpp)
 add_executable(chapters_2_2 src/chapters/chapter_02/Exer2_8.cpp)
