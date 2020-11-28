@@ -1,22 +1,19 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.15)
 
-project(cli VERSION 0.0.1)
+project(ip_filter VERSION 0.0.1)
 
 find_package(Threads REQUIRED)
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
-find_package(spdlog REQUIRED)
 
-configure_file(Ops/version.h.in ${PROJECT_SOURCE_DIR}/Sources/Main/Version.h)
+add_executable(ip_filter Sources/Main/Main.cpp)
 
-add_executable(cli Sources/Main/Main.cpp)
-
-add_library(cli_lib Sources/Main/Lib.cpp)
+#add_library(ip_filter_lib Sources/Main/Lib.cpp)
 
 add_executable(test_version Tests/test_version.cpp)
 
 include_directories(include)
 
-set_target_properties(cli cli_lib test_version PROPERTIES
+set_target_properties(ip_filter test_version PROPERTIES
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
         COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
@@ -27,19 +24,17 @@ set_target_properties(test_version PROPERTIES
         INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
         )
 
-target_link_libraries(cli
-        spdlog::spdlog
-        cli_lib
+target_link_libraries(
+        ip_filter
         Threads::Threads
-        )
+)
 
 target_link_libraries(test_version
-        spdlog::spdlog
         ${Boost_LIBRARIES}
-        cli_lib
+#        ip_filter_lib
         )
 
-install(TARGETS cli RUNTIME DESTINATION bin)
+install(TARGETS ip_filter RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 
