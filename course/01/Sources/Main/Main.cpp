@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <array>
 #include<boost/tokenizer.hpp>
+#include <cstring>
 
 std::vector<std::string> read_input();
 
@@ -51,8 +52,20 @@ std::string format_line(std::string &str) {
     return str.substr(0, str.find('\t'));
 }
 
-void sort(std::vector<std::array<std::string, 4>> &data) {
+bool compare11(const std::array<std::string, 4> &arr1, const std::array<std::string, 4> &arr2) {
+    std::cout << arr1[0] << "." << arr1[1] << "." << arr1[2] << "." << arr1[3] << " VS " << arr2[0] << "." << arr2[1]
+              << "." << arr2[2] << "." << arr2[3] << " ";;
+    bool a = std::lexicographical_compare(arr1[0].begin(), arr1[0].end(), arr2[0].begin(), arr2[0].end());
+    bool b = std::lexicographical_compare(arr1[1].begin(), arr1[1].end(), arr2[1].begin(), arr2[1].end());
+    bool c = std::lexicographical_compare(arr1[2].begin(), arr1[2].end(), arr2[2].begin(), arr2[2].end());
+    bool d = std::lexicographical_compare(arr1[3].begin(), arr1[3].end(), arr2[3].begin(), arr2[3].end());
+    std::cout << a << " " << b << " " << c << " " << d << " " << (a || b || c || d) << " " << std::endl;
 
+    return a;
+}
+
+void sort(std::vector<std::array<std::string, 4>> &data) {
+    std::sort(data.begin(), data.end(), compare11);
 }
 
 void print(std::vector<std::array<std::string, 4>> &data) {
@@ -65,6 +78,7 @@ void print(std::vector<std::array<std::string, 4>> &data) {
             }
         }
     }
+    std::cout << "done----------------";
 }
 
 
