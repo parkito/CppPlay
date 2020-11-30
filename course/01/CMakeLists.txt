@@ -7,13 +7,13 @@ find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 add_executable(ip_filter Sources/Main/Main.cpp)
 
-#add_library(ip_filter_lib Sources/Main/Lib.cpp)
+add_library(ip_filter_lib Sources/Main/IpFilter.cpp Sources/Main/Reader.cpp Sources/Main/IpCommon.h)
 
 add_executable(test_version Tests/test_version.cpp)
 
 include_directories(include)
 
-set_target_properties(ip_filter test_version PROPERTIES
+set_target_properties(ip_filter ip_filter_lib test_version PROPERTIES
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
         COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
@@ -26,12 +26,13 @@ set_target_properties(test_version PROPERTIES
 
 target_link_libraries(
         ip_filter
+        ip_filter_lib
         Threads::Threads
 )
 
 target_link_libraries(test_version
         ${Boost_LIBRARIES}
-#        ip_filter_lib
+        ip_filter_lib
         )
 
 install(TARGETS ip_filter RUNTIME DESTINATION bin)

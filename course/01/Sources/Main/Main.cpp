@@ -1,46 +1,36 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <array>
+#include "IpFilter.h"
+#include "Reader.h"
+#include "IpCommon.h"
 
-using Input = std::vector<std::string>;
-using Data = std::vector<std::vector<unsigned int>>;
-using Address = std::vector<unsigned int>;
 
-Input read_input();
-
-Data format_input(Input &data);
+ip::Data format_input(ip::Input &data);
 
 std::string format_line(std::string &str);
 
-void sort(Data &data);
+void sort(ip::Data &data);
 
-bool compare(const Address &arr1, const Address &arr2);
+bool compare(const ip::Address &arr1, const ip::Address &arr2);
 
-bool compare_indexed(const Address &arr1, const Address &arr2, int index);
+bool compare_indexed(const ip::Address &arr1, const ip::Address &arr2, int index);
 
-void print(Data &data);
+void print(ip::Data &data);
 
 int main() {
-    auto input = read_input();
+    ip::Reader reader;
+    auto input = reader.read_input();
     auto formattedInput = format_input(input);
     sort(formattedInput);
     print(formattedInput);
     return 0;
 }
 
-Input read_input() {
-    Input data;
-    for (std::string line; std::getline(std::cin, line);) {
-        data.push_back(line);
-    }
-    return data;
-}
-
-Data format_input(Input &data) {
-    Data formattedData;
+ip::Data format_input(ip::Input &data) {
+    ip::Data formattedData;
     for (auto &rawLine:data) {
-        Address address;
+        ip::Address address;
         auto line = format_line(rawLine);
         for (size_t i = 0, cur = 0; i < line.size(); ++i) {
             if (line[i] == '.') {
@@ -60,11 +50,11 @@ std::string format_line(std::string &str) {
     return str.substr(0, str.find_first_of('\t'));
 }
 
-void sort(Data &data) {
+void sort(ip::Data &data) {
     std::sort(data.begin(), data.end(), compare);
 }
 
-bool compare(const Address &arr1, const Address &arr2) {
+bool compare(const ip::Address &arr1, const ip::Address &arr2) {
     bool result = false;
 
     for (size_t i = 0; i < arr1.size(); ++i) {
@@ -77,11 +67,11 @@ bool compare(const Address &arr1, const Address &arr2) {
     return !result;
 }
 
-bool compare_indexed(const Address &arr1, const Address &arr2, int index) {
+bool compare_indexed(const ip::Address &arr1, const ip::Address &arr2, int index) {
     return arr1[index] < arr2[index];
 }
 
-void print(Data &data) {
+void print(ip::Data &data) {
     for (auto &line:data) {
         for (size_t i = 0; i < line.size(); ++i) {
             if (i != 3) {
