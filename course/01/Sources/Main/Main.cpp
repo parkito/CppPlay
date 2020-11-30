@@ -3,20 +3,23 @@
 #include <algorithm>
 #include <array>
 
-std::vector<std::string> read_input();
+using Input = std::vector<std::string>;
+using Data = std::vector<std::vector<std::string>>;
+using Address = std::vector<std::string>;
 
-std::vector<std::vector<std::string>> format_input(std::vector<std::string> &data);
+Input read_input();
+
+Data format_input(Input &data);
 
 std::string format_line(std::string &str);
 
-void sort(std::vector<std::vector<std::string>> &data);
+void sort(Data &data);
 
-bool compare(const std::vector<std::string> &arr1, const std::vector<std::string> &arr2);
+bool compare(const Address &arr1, const Address &arr2);
 
-bool compare_indexed(const std::vector<std::string> &arr1, const std::vector<std::string> &arr2, int index);
+bool compare_indexed(const Address &arr1, const Address &arr2, int index);
 
-void print(std::vector<std::vector<std::string>> &data);
-
+void print(Data &data);
 int main() {
     auto input = read_input();
     auto formattedInput = format_input(input);
@@ -25,18 +28,18 @@ int main() {
     return 0;
 }
 
-std::vector<std::string> read_input() {
-    std::vector<std::string> data;
+Address read_input() {
+    Address data;
     for (std::string line; std::getline(std::cin, line);) {
         data.push_back(line);
     }
     return data;
 }
 
-std::vector<std::vector<std::string>> format_input(std::vector<std::string> &data) {
-    std::vector<std::vector<std::string>> formattedData;
+Data format_input(Address &data) {
+    Data formattedData;
     for (auto &rawLine:data) {
-        std::vector<std::string> address;
+        Address address;
         auto line = format_line(rawLine);
         for (size_t i = 0, cur = 0; i < line.size(); ++i) {
             if (line[i] == '.') {
@@ -56,11 +59,11 @@ std::string format_line(std::string &str) {
     return str.substr(0, str.find_first_of('\t'));
 }
 
-void sort(std::vector<std::vector<std::string>> &data) {
+void sort(Data &data) {
     std::sort(data.begin(), data.end(), compare);
 }
 
-bool compare(const std::vector<std::string> &arr1, const std::vector<std::string> &arr2) {
+bool compare(const Address &arr1, const Address &arr2) {
     bool result = false;
 
     for (size_t i = 0; i < arr1.size(); ++i) {
@@ -73,11 +76,11 @@ bool compare(const std::vector<std::string> &arr1, const std::vector<std::string
     return !result;
 }
 
-bool compare_indexed(const std::vector<std::string> &arr1, const std::vector<std::string> &arr2, int index) {
+bool compare_indexed(const Address &arr1, const Address &arr2, int index) {
     return std::lexicographical_compare(arr1[index].begin(), arr1[index].end(), arr2[index].begin(), arr2[index].end());
 }
 
-void print(std::vector<std::vector<std::string>> &data) {
+void print(Data &data) {
     for (auto &line:data) {
         for (size_t i = 0; i < line.size(); ++i) {
             if (i != 3) {
