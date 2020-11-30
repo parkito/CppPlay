@@ -1,7 +1,7 @@
 #pragma once
 
 namespace ip {
-    class IpFilter {
+    class Applier {
 
     public:
         void doSomething();

@@ -1,14 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include "IpFilter.h"
+#include "Applier.h"
 #include "Reader.h"
+#include "Formatter.h"
 #include "IpCommon.h"
-
-
-ip::Data format_input(ip::Input &data);
-
-std::string format_line(std::string &str);
+#include "Runner.h"
 
 void sort(ip::Data &data);
 
@@ -19,36 +16,14 @@ bool compare_indexed(const ip::Address &arr1, const ip::Address &arr2, int index
 void print(ip::Data &data);
 
 int main() {
-    ip::Reader reader;
-    auto input = reader.read_input();
-    auto formattedInput = format_input(input);
-    sort(formattedInput);
-    print(formattedInput);
-    return 0;
-}
+    ip::Runner runner;
+    ip::Output &output = runner.run();
 
-ip::Data format_input(ip::Input &data) {
-    ip::Data formattedData;
-    for (auto &rawLine:data) {
-        ip::Address address;
-        auto line = format_line(rawLine);
-        for (size_t i = 0, cur = 0; i < line.size(); ++i) {
-            if (line[i] == '.') {
-                address.push_back(std::stoi(line.substr(cur, i - cur)));
-                cur = i + 1;
-            } else if (i == line.size() - 1) {
-                address.push_back(std::stoi(line.substr(cur, i - cur + 1)));
-            }
-        }
-        formattedData.push_back(address);
+    for (auto &line:output) {
+        std::cout << line << std::endl;
     }
-
-    return formattedData;
 }
 
-std::string format_line(std::string &str) {
-    return str.substr(0, str.find_first_of('\t'));
-}
 
 void sort(ip::Data &data) {
     std::sort(data.begin(), data.end(), compare);

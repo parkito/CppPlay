@@ -7,7 +7,7 @@ find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 add_executable(ip_filter Sources/Main/Main.cpp)
 
-add_library(ip_filter_lib Sources/Main/IpFilter.cpp Sources/Main/Reader.cpp Sources/Main/IpCommon.h)
+add_library(ip_filter_lib Sources/Main/Applier.cpp Sources/Main/Reader.cpp Sources/Main/IpCommon.h Sources/Main/Formatter.cpp Sources/Main/Formatter.h Sources/Main/Filter.cpp Sources/Main/Filter.h Sources/Main/Runner.cpp Sources/Main/Runner.h Sources/Main/Validator.cpp Sources/Main/Validator.h)
 
 add_executable(test_version Tests/test_version.cpp)
 
