@@ -11,6 +11,10 @@ std::string format_line(std::string &str);
 
 void sort(std::vector<std::vector<std::string>> &data);
 
+bool compare(const std::vector<std::string> &arr1, const std::vector<std::string> &arr2);
+
+bool compare_indexed(const std::vector<std::string> &arr1, const std::vector<std::string> &arr2, int index);
+
 void print(std::vector<std::vector<std::string>> &data);
 
 int main() {
@@ -52,28 +56,25 @@ std::string format_line(std::string &str) {
     return str.substr(0, str.find_first_of('\t'));
 }
 
-bool compare11(const std::vector<std::string> &arr1, const std::vector<std::string> &arr2) {
-    bool a = std::lexicographical_compare(arr1[0].begin(), arr1[0].end(), arr2[0].begin(), arr2[0].end());
-    bool b = std::lexicographical_compare(arr1[1].begin(), arr1[1].end(), arr2[1].begin(), arr2[1].end());
-    bool c = std::lexicographical_compare(arr1[2].begin(), arr1[2].end(), arr2[2].begin(), arr2[2].end());
-    bool d = std::lexicographical_compare(arr1[3].begin(), arr1[3].end(), arr2[3].begin(), arr2[3].end());
+void sort(std::vector<std::vector<std::string>> &data) {
+    std::sort(data.begin(), data.end(), compare);
+}
 
+bool compare(const std::vector<std::string> &arr1, const std::vector<std::string> &arr2) {
     bool result = false;
-    if (arr1[0] != arr2[0]) {
-        result = a;
-    } else if (arr1[1] != arr2[1]) {
-        result = b;
-    } else if (arr1[2] != arr2[2]) {
-        result = c;
-    } else if (arr1[3] != arr2[3]) {
-        result = d;
+
+    for (size_t i = 0; i < arr1.size(); ++i) {
+        if (arr1[i] != arr2[i]) {
+            result = compare_indexed(arr1, arr2, i);
+            break;
+        }
     }
 
     return !result;
 }
 
-void sort(std::vector<std::vector<std::string>> &data) {
-    std::sort(data.begin(), data.end(), compare11);
+bool compare_indexed(const std::vector<std::string> &arr1, const std::vector<std::string> &arr2, int index) {
+    return std::lexicographical_compare(arr1[index].begin(), arr1[index].end(), arr2[index].begin(), arr2[index].end());
 }
 
 void print(std::vector<std::vector<std::string>> &data) {
