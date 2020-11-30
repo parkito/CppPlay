@@ -4,8 +4,8 @@
 #include <array>
 
 using Input = std::vector<std::string>;
-using Data = std::vector<std::vector<std::string>>;
-using Address = std::vector<std::string>;
+using Data = std::vector<std::vector<unsigned int>>;
+using Address = std::vector<unsigned int>;
 
 Input read_input();
 
@@ -20,6 +20,7 @@ bool compare(const Address &arr1, const Address &arr2);
 bool compare_indexed(const Address &arr1, const Address &arr2, int index);
 
 void print(Data &data);
+
 int main() {
     auto input = read_input();
     auto formattedInput = format_input(input);
@@ -28,25 +29,25 @@ int main() {
     return 0;
 }
 
-Address read_input() {
-    Address data;
+Input read_input() {
+    Input data;
     for (std::string line; std::getline(std::cin, line);) {
         data.push_back(line);
     }
     return data;
 }
 
-Data format_input(Address &data) {
+Data format_input(Input &data) {
     Data formattedData;
     for (auto &rawLine:data) {
         Address address;
         auto line = format_line(rawLine);
         for (size_t i = 0, cur = 0; i < line.size(); ++i) {
             if (line[i] == '.') {
-                address.push_back(line.substr(cur, i - cur));
+                address.push_back(std::stoi(line.substr(cur, i - cur)));
                 cur = i + 1;
             } else if (i == line.size() - 1) {
-                address.push_back(line.substr(cur, i - cur + 1));
+                address.push_back(std::stoi(line.substr(cur, i - cur + 1)));
             }
         }
         formattedData.push_back(address);
@@ -77,7 +78,7 @@ bool compare(const Address &arr1, const Address &arr2) {
 }
 
 bool compare_indexed(const Address &arr1, const Address &arr2, int index) {
-    return std::lexicographical_compare(arr1[index].begin(), arr1[index].end(), arr2[index].begin(), arr2[index].end());
+    return arr1[index] < arr2[index];
 }
 
 void print(Data &data) {
@@ -104,10 +105,3 @@ void print(Data &data) {
 //    std::ostringstream oss;
 //    std::copy(arr.begin(), arr.end(), std::ostream_iterator<std::string>(oss, "."));
 //    std::cout << oss.str() << std::endl;
-
-
-//97.82.75.243 VS 93.179.90.82 -----0 0 1 1 1
-//93.179.90.82 VS 97.82.75.243 -----1 1 0 0 1
-
-//93.179.90.82 VS 97.82.75.243 -----1 1 0 0 1
-//97.82.75.243 VS 93.179.90.82 -----0 0 1 1 1
