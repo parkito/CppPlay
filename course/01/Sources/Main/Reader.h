@@ -6,11 +6,11 @@
 namespace ip {
     class Reader {
     public:
-        explicit Reader(const ip::Validator &val);
+        explicit Reader(const ip::Validator &valid);
 
         ip::Input read_input();
 
     private:
-        ip::Validator &validator;
+        ip::Validator validator;
     };
 }

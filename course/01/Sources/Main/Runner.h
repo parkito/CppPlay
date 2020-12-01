@@ -2,14 +2,21 @@
 
 #include "IpCommon.h"
 #include "filter/Filter.h"
+#include "filter/SortedFilter.h"
+#include <memory>
 
 namespace ip {
     class Runner {
     public:
-        ip::Output &run();
+        ip::Output run();
 
     private:
-        static std::vector<ip::Filter> to_filters(ip::Filter const &filters...);
+        template<typename Filter, typename ... Filters>
+        std::vector<std::unique_ptr<Filter>> to_filters(Filters &&...filters);
+
+        unsigned int outputSize(std::vector<Output> &);
+
+        ip::Output merge(std::vector<ip::Output> &outputs, unsigned int &outputSize);
     };
 }
 

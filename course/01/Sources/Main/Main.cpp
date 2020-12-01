@@ -3,7 +3,7 @@
 
 int main() {
     ip::Runner runner;
-    ip::Output &output = runner.run();
+    ip::Output output = runner.run();
 
     for (auto &line:output) {
         std::cout << line << std::endl;

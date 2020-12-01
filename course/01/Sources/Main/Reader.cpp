@@ -1,6 +1,8 @@
 #include "Reader.h"
 
-ip::Reader::Reader(const ip::Validator &validator) : validator{validator} {}
+ip::Reader::Reader(const ip::Validator &valid) {
+    validator = valid;
+}
 
 ip::Input ip::Reader::read_input() {
     ip::Input data;
