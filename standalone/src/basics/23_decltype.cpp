@@ -19,11 +19,20 @@ int main() {
   std::cout << findMin(5.4, 3) << std::endl;
 
   auto au = findMin(5.4, 3);
-  std::cout << typeid(au).name()<< " " << au;
+  std::cout << typeid(au).name() << " " << au;
+
+  int i = 42;
+
+  int arr[10];
+
+  decltype(arr[1000]) c3 = i;
+
+  auto f1 = decltype(1 + 3.14)(1);
 }
 
 struct car {
   int engine;
+
 private:
-  car() = delete; // any use of this constructor is an error
+  car() = delete;  // any use of this constructor is an error
 };
