@@ -5,7 +5,7 @@ project(ip_filter VERSION 0.0.1)
 find_package(Threads REQUIRED)
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
-add_executable(ip_filter Sources/Main/Main.cpp)
+add_executable(ip_filter Sources/Main.cpp)
 
 add_library(ip_filter_lib
         Sources/Main/Reader.cpp
@@ -13,7 +13,10 @@ add_library(ip_filter_lib
         Sources/Main/filter/Filter.cpp
         Sources/Main/Runner.cpp
         Sources/Main/Validator.cpp
-        Sources/Main/filter/SortedFilter.cpp Sources/Main/filter/FirstByteFilter.cpp Sources/Main/filter/FirstAndSecondByteFilter.cpp Sources/Main/filter/AnyFilter.cpp)
+        Sources/Main/filter/SortedFilter.cpp
+        Sources/Main/filter/FirstByteFilter.cpp
+        Sources/Main/filter/FirstAndSecondByteFilter.cpp
+        Sources/Main/filter/AnyFilter.cpp)
 
 add_executable(test_version Tests/test_version.cpp)
 

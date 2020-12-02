@@ -14,9 +14,7 @@ namespace ip {
         template<typename Filter, typename ... Filters>
         std::vector<std::unique_ptr<Filter>> to_filters(Filters &&...filters);
 
-        unsigned int outputSize(std::vector<Output> &);
-
-        ip::Output merge(std::vector<ip::Output> &outputs, unsigned int &outputSize);
+        ip::Output merge(std::vector<ip::Output> &outputs);
     };
 }
 

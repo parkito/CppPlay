@@ -19,9 +19,7 @@ ip::Output ip::Runner::run() {
         outputs[i] = filters[i]->filter(formattedInput);
     }
 
-    unsigned int outputSize = this->outputSize(outputs);
-
-    return this->merge(outputs, outputSize);
+    return this->merge(outputs);
 }
 
 template<typename Filter, typename... Filters>
@@ -32,15 +30,7 @@ std::vector<std::unique_ptr<Filter>> ip::Runner::to_filters(Filters &&...filters
     return vec;
 }
 
-unsigned int ip::Runner::outputSize(std::vector<Output> &outputs) {
-    unsigned int size{};
-    for (auto &el:outputs) {
-        size += el.size();
-    }
-    return size;
-}
-
-ip::Output ip::Runner::merge(std::vector<ip::Output> &outputs, unsigned int &outputSize) {
+ip::Output ip::Runner::merge(std::vector<ip::Output> &outputs) {
     ip::Output merged;
     for (auto &el:outputs) {
         std::move(el.begin(), el.end(), std::back_inserter(merged));
