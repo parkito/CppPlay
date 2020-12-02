@@ -1,8 +1,8 @@
 #pragma once
 
 #include "IpCommon.h"
-#include "filter/Filter.h"
-#include "filter/SortedFilter.h"
+#include "Filter/Filter.h"
+#include "Filter/SortedFilter.h"
 #include <memory>
 
 namespace ip {

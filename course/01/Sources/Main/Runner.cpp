@@ -1,8 +1,6 @@
 #include "Runner.h"
 #include "Formatter.h"
 #include "Reader.h"
-#include "filter/SortedFilter.h"
-#include "filter/Filter.h"
 
 ip::Output ip::Runner::run() {
     ip::Validator validator;
