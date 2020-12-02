@@ -36,6 +36,8 @@ add_executable(main23 src/basics/23_decltype.cpp)
 add_executable(main24 src/basics/24_var_array.cpp)
 add_executable(main25 src/basics/25_rvalue_reference.cpp)
 add_executable(main26 src/basics/26_move.cpp)
+add_executable(main27 src/basics/27_attributes.cpp)
+add_executable(main28 src/basics/28_deduction.cpp)
 
 add_executable(chapters_2_1 src/chapters/chapter_02/Ex2_05.cpp)
 add_executable(chapters_2_2 src/chapters/chapter_02/Exer2_8.cpp)

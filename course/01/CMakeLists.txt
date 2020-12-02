@@ -8,7 +8,6 @@ find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 add_executable(ip_filter Sources/Main/Main.cpp)
 
 add_library(ip_filter_lib
-        Sources/Main/Applier.cpp
         Sources/Main/Reader.cpp
         Sources/Main/Formatter.cpp
         Sources/Main/filter/Filter.cpp
@@ -17,8 +16,6 @@ add_library(ip_filter_lib
         Sources/Main/filter/SortedFilter.cpp Sources/Main/filter/FirstByteFilter.cpp Sources/Main/filter/FirstAndSecondByteFilter.cpp Sources/Main/filter/AnyFilter.cpp)
 
 add_executable(test_version Tests/test_version.cpp)
-
-include_directories(include)
 
 set_target_properties(ip_filter ip_filter_lib test_version PROPERTIES
         CXX_STANDARD 17

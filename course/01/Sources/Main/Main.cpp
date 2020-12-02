@@ -2,14 +2,10 @@
 #include "Runner.h"
 
 int main() {
-    ip::Runner runner;
-    ip::Output output = runner.run();
-
-    for (auto &line:output) {
+    for (auto &line:ip::Runner().run()) {
         std::cout << line << std::endl;
     }
 }
-
 
 //    std::ifstream file(argv[1]);
 //    if (!file.is_open()) {

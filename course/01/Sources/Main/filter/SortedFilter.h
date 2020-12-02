@@ -12,10 +12,10 @@ namespace ip {
         }
 
     private:
-        bool compare(const ip::Address &arr1, const ip::Address &arr2);
+        static bool compare(const ip::Address &arr1, const ip::Address &arr2);
 
-        ip::Data sort(ip::Data data);
+        static bool compare_indexed(const ip::Address &arr1, const ip::Address &arr2, int index);
 
-        bool compare_indexed(const ip::Address &arr1, const ip::Address &arr2, int index);
+        static ip::Data sort(ip::Data data);
     };
 }

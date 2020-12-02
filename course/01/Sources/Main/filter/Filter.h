@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../IpCommon.h"
+#include "filter/IpCommon.h"
 
 namespace ip {
     class Filter {

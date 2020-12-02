@@ -14,7 +14,7 @@ bool ip::SortedFilter::compare(const ip::Address &arr1, const ip::Address &arr2)
 }
 
 ip::Data ip::SortedFilter::sort(ip::Data data) {
-    std::sort(data.begin(), data.end(), &SortedFilter::compare);
+    std::sort(data.begin(), data.end(), SortedFilter::compare);
     return data;
 }
 

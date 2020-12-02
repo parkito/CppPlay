@@ -13,17 +13,16 @@ ip::Output ip::Runner::run() {
     auto formattedInput = formatter.format_input(input);
 
     std::vector<std::unique_ptr<Filter>> filters = to_filters<ip::Filter>(new ip::SortedFilter());
-    std::vector<ip::Output> outputs(4);
+    std::vector<ip::Output> outputs{filters.size()};
 
-    for (auto &el:filters) {
-        outputs.push_back(el->filter(formattedInput));
+    for (size_t i = 0; i < outputs.size(); ++i) {
+        outputs[i] = filters[i]->filter(formattedInput);
     }
 
     unsigned int outputSize = this->outputSize(outputs);
 
     return this->merge(outputs, outputSize);
 }
-
 
 template<typename Filter, typename... Filters>
 std::vector<std::unique_ptr<Filter>> ip::Runner::to_filters(Filters &&...filters) {
@@ -42,7 +41,7 @@ unsigned int ip::Runner::outputSize(std::vector<Output> &outputs) {
 }
 
 ip::Output ip::Runner::merge(std::vector<ip::Output> &outputs, unsigned int &outputSize) {
-    ip::Output merged{outputSize};
+    ip::Output merged;
     for (auto &el:outputs) {
         std::move(el.begin(), el.end(), std::back_inserter(merged));
     }
