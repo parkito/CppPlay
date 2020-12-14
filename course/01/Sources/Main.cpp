@@ -3,9 +3,9 @@
 #include "Runner/Runner.h"
 
 int main() {
-    const std::unique_ptr<ip::Validator> validator{new ip::Validator()};
-    const std::unique_ptr<ip::Formatter> formatter{new ip::Formatter};
-    const std::unique_ptr<ip::StdReader> stdReader{new ip::StdReader({new ip::Validator()})};
+    std::unique_ptr<ip::Validator> validator{new ip::Validator()};
+    std::unique_ptr<ip::Formatter> formatter{new ip::Formatter};
+    std::unique_ptr<ip::IReader> stdReader{new ip::StdReader{validator}};
 
     ip::Runner runner{stdReader, formatter};
     for (auto &line:runner.run()) {

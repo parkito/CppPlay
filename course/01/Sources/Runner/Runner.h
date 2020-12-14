@@ -11,7 +11,7 @@
 namespace ip {
     class Runner {
     public:
-        Runner(std::unique_ptr<ip::IReader> c_reader, std::unique_ptr<ip::Formatter> c_formatter) :
+        Runner(std::unique_ptr<ip::IReader> &c_reader, std::unique_ptr<ip::Formatter> &c_formatter) :
                 reader(std::move(c_reader)), formatter(std::move(c_formatter)) {};
 
         ip::Output run();

@@ -13,3 +13,5 @@ ip::Input ip::FileReader::read_input(std::optional<std::string> filePath) {
     }
     return data;
 }
+
+ip::FileReader::FileReader(std::unique_ptr<ip::Validator> &valid) : IReader(valid) {}
