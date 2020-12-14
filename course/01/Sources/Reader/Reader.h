@@ -1,7 +1,7 @@
 #pragma once
 
-#include "IpCommon.h"
-#include "Validator.h"
+#include "../Common/IpCommon.h"
+#include "../Validator/Validator.h"
 
 namespace ip {
     class Reader {

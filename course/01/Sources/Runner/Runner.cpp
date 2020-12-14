@@ -1,6 +1,6 @@
 #include "Runner.h"
-#include "Formatter.h"
-#include "Reader.h"
+#include "../Formatter/Formatter.h"
+#include "../Reader/Reader.h"
 
 ip::Output ip::Runner::run() {
     ip::Validator validator;

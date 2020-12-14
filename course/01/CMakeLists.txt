@@ -5,42 +5,79 @@ project(ip_filter VERSION 0.0.1)
 find_package(Threads REQUIRED)
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
+add_library(
+        ip_filter_lib
+        SHARED
+        Sources/Filter/Filter.cpp
+        Sources/Filter/FirstAndSecondByteFilter.cpp
+        Sources/Filter/FirstByteFilter.cpp
+        Sources/Filter/SortedFilter.cpp
+        Sources/Filter/SortedFilter.cpp
+        Sources/Formatter/Formatter.cpp
+        Sources/Reader/Reader.cpp
+        Sources/Runner/Runner.cpp
+        Sources/Validator/Validator.cpp
+)
+
+target_include_directories(
+        ip_filter_lib
+        PUBLIC
+        Sources/Common
+        Sources/Filter
+        Sources/Formatter
+        Sources/Reader
+        Sources/Runner
+        Sources/Validator
+)
+
+target_sources(
+        ip_filter_lib
+        PUBLIC
+        Sources/Common/IpCommon.h
+        Sources/Filter/Filter.cpp
+        Sources/Filter/FirstAndSecondByteFilter.cpp
+        Sources/Filter/FirstByteFilter.cpp
+        Sources/Filter/SortedFilter.cpp
+        Sources/Filter/SortedFilter.cpp
+        Sources/Formatter/Formatter.cpp
+        Sources/Reader/Reader.cpp
+        Sources/Runner/Runner.cpp
+        Sources/Validator/Validator.h
+)
+
 add_executable(ip_filter Sources/Main.cpp)
+add_executable(ip_filter_test Tests/ip_filter_test.cpp)
 
-add_library(ip_filter_lib
-        Sources/Main/Reader.cpp
-        Sources/Main/Formatter.cpp
-        Sources/Main/Filter/Filter.cpp
-        Sources/Main/Runner.cpp
-        Sources/Main/Validator.cpp
-        Sources/Main/Filter/SortedFilter.cpp
-        Sources/Main/Filter/FirstByteFilter.cpp
-        Sources/Main/Filter/FirstAndSecondByteFilter.cpp
-        Sources/Main/Filter/AnyFilter.cpp)
-
-add_executable(test_version Tests/test_version.cpp)
-
-set_target_properties(ip_filter ip_filter_lib test_version PROPERTIES
+set_target_properties(
+        ip_filter
+        ip_filter_lib
+        ip_filter_test
+        PROPERTIES
         CXX_STANDARD 17
         CXX_STANDARD_REQUIRED ON
         COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
-        )
+)
 
-set_target_properties(test_version PROPERTIES
+set_target_properties(
+        ip_filter_test
+        PROPERTIES
         COMPILE_DEFINITIONS BOOST_TEST_DYN_LINK
         INCLUDE_DIRECTORIES ${Boost_INCLUDE_DIR}
-        )
+)
 
 target_link_libraries(
         ip_filter
+        PRIVATE
         ip_filter_lib
         Threads::Threads
 )
 
-target_link_libraries(test_version
-        ${Boost_LIBRARIES}
+target_link_libraries(
+        ip_filter_test
+        PRIVATE
         ip_filter_lib
-        )
+        ${Boost_LIBRARIES}
+)
 
 install(TARGETS ip_filter RUNTIME DESTINATION bin)
 
@@ -58,6 +95,6 @@ include(CPack)
 
 enable_testing()
 
-add_test(cli_lib_tests test_version)
+add_test(filter_test ip_filter_test)
 
 #cmake -H. -Bcmake-build-debug && cd cmake-build-debug && make all && make package

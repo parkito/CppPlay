@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IpCommon.h"
+#include "../Common/IpCommon.h"
 
 namespace ip {
     class Validator {
