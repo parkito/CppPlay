@@ -1,10 +1,6 @@
-#include "Reader.h"
+#include "StdReader.h"
 
-ip::Reader::Reader(const ip::Validator &valid) {
-    validator = valid;
-}
-
-ip::Input ip::Reader::read_input() {
+ip::Input ip::StdReader::read_input(std::optional<std::string>) {
     ip::Input data;
     for (std::string line; std::getline(std::cin, line);) {
         validator.validate_line(line);

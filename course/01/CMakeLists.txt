@@ -14,7 +14,8 @@ add_library(
         Sources/Filter/SortedFilter.cpp
         Sources/Filter/SortedFilter.cpp
         Sources/Formatter/Formatter.cpp
-        Sources/Reader/Reader.cpp
+        Sources/Reader/FileReader.cpp
+        Sources/Reader/StdReader.cpp
         Sources/Runner/Runner.cpp
         Sources/Validator/Validator.cpp
 )
@@ -28,21 +29,6 @@ target_include_directories(
         Sources/Reader
         Sources/Runner
         Sources/Validator
-)
-
-target_sources(
-        ip_filter_lib
-        PUBLIC
-        Sources/Common/IpCommon.h
-        Sources/Filter/Filter.cpp
-        Sources/Filter/FirstAndSecondByteFilter.cpp
-        Sources/Filter/FirstByteFilter.cpp
-        Sources/Filter/SortedFilter.cpp
-        Sources/Filter/SortedFilter.cpp
-        Sources/Formatter/Formatter.cpp
-        Sources/Reader/Reader.cpp
-        Sources/Runner/Runner.cpp
-        Sources/Validator/Validator.h
 )
 
 add_executable(ip_filter Sources/Main.cpp)

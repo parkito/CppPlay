@@ -1,13 +1,14 @@
 #include "Runner.h"
 #include "../Formatter/Formatter.h"
-#include "../Reader/Reader.h"
+#include "StdReader.h"
+#include <optional>
 
-ip::Output ip::Runner::run() {
+ip::Output ip::Runner::run(ip::StdReader reader) {
     ip::Validator validator;
-    ip::Reader reader{validator};
-    ip::Formatter formatter;
+    ip::StdReader reader = StdReader{validator};
 
-    auto input = reader.read_input();
+
+    auto input = reader.read_input(std::nullopt);
     auto formattedInput = formatter.format_input(input);
 
     std::vector<std::unique_ptr<Filter>> filters = to_filters<ip::Filter>(new ip::SortedFilter());
