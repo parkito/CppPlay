@@ -14,7 +14,7 @@ namespace ip {
         Runner(std::unique_ptr<ip::IReader> &c_reader, std::unique_ptr<ip::Formatter> &c_formatter) :
                 reader(std::move(c_reader)), formatter(std::move(c_formatter)) {};
 
-        ip::Output run();
+        ip::Output run(const std::optional<std::string> &filePath);
 
     private:
         const std::unique_ptr<ip::IReader> reader;

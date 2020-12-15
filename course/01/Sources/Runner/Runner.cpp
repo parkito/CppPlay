@@ -1,8 +1,8 @@
 #include "Runner.h"
 #include <optional>
 
-ip::Output ip::Runner::run() {
-    auto input = reader->read_input(std::nullopt);
+ip::Output ip::Runner::run(const std::optional<std::string> &filePath) {
+    auto input = reader->read_input(filePath);
     auto formattedInput = formatter->format_input(input);
 
     std::vector<std::unique_ptr<Filter>> filters = to_filters<ip::Filter>(new ip::SortedFilter());

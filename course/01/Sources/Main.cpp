@@ -6,9 +6,9 @@ int main() {
     std::unique_ptr<ip::Validator> validator{new ip::Validator()};
     std::unique_ptr<ip::Formatter> formatter{new ip::Formatter};
     std::unique_ptr<ip::IReader> stdReader{new ip::StdReader{validator}};
-
     ip::Runner runner{stdReader, formatter};
-    for (auto &line:runner.run()) {
+
+    for (auto &line:runner.run(std::nullopt)) {
         std::cout << line << std::endl;
     }
 }

@@ -6,11 +6,15 @@ ip::Input ip::FileReader::read_input(std::optional<std::string> filePath) {
     if (!filePath.has_value()) {
         throw std::runtime_error("File is not present");
     }
-    std::ifstream file("numbers.txt");
-    for (std::string line; std::getline(file, line);) {
-        validator->validate_line(line);
-        data.push_back(line);
+    std::ifstream file;
+    file.open(filePath.value());
+    if (file.is_open()) {
+        for (std::string line; std::getline(file, line);) {
+            validator->validate_line(line);
+            data.push_back(line);
+        }
     }
+    file.close();
     return data;
 }
 
