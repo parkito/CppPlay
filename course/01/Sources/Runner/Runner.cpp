@@ -4,12 +4,13 @@
 ip::Output ip::Runner::run(const std::optional<std::string> &filePath) {
     auto input = reader->read_input(filePath);
     auto formattedInput = formatter->format_input(input);
+    auto sortedInput = comparator->sort(formattedInput);
 
     std::vector<std::unique_ptr<Filter>> filters = to_filters<ip::Filter>(new ip::SortedFilter());
     std::vector<ip::Output> outputs{filters.size()};
 
     for (size_t i = 0; i < outputs.size(); ++i) {
-        outputs[i] = filters[i]->filter(formattedInput);
+        outputs[i] = filters[i]->filter(sortedInput);
     }
 
     return this->merge(outputs);

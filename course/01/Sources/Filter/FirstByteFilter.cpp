@@ -1,4 +1,7 @@
-//
-// Created by Артем Карнов on 2020-11-30.
-//
+#include <IpCommon.h>
+#include "FirstByteFilter.h"
 
+ip::Output FirstByteFilter::filter(const ip::Data &data) {
+
+    return ip::Output();
+}
