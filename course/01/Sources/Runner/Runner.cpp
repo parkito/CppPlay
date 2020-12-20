@@ -6,7 +6,12 @@ ip::Output ip::Runner::run(const std::optional<std::string> &filePath) {
     auto formattedInput = formatter->format_input(input);
     auto sortedInput = comparator->sort(formattedInput);
 
-    std::vector<std::unique_ptr<Filter>> filters = to_filters<ip::Filter>(new ip::SortedFilter());
+    std::vector<std::unique_ptr<Filter>> filters = to_filters<ip::Filter>(
+            new ip::SortedFilter(),
+            new ip::FirstByteFilter(),
+            new ip::FirstAndSecondByteFilter(),
+            new ip::AnyByteFilter()
+    );
     std::vector<ip::Output> outputs{filters.size()};
 
     for (size_t i = 0; i < outputs.size(); ++i) {

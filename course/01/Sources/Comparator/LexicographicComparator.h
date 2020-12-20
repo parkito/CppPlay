@@ -3,7 +3,6 @@
 #include "IpCommon.h"
 
 namespace ip {
-
     class LexicographicComparator {
     public:
         static ip::Data sort(ip::Data data);

@@ -11,6 +11,7 @@ add_library(
         Sources/Filter/Filter.cpp
         Sources/Filter/FirstAndSecondByteFilter.cpp
         Sources/Filter/FirstByteFilter.cpp
+        Sources/Filter/AnyByteFilter.cpp
         Sources/Comparator/LexicographicComparator.cpp
         Sources/Filter/SortedFilter.cpp
         Sources/Formatter/Formatter.cpp

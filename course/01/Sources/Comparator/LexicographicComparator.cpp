@@ -1,5 +1,5 @@
 #include <algorithm>
-#include "LexicographicComporator.h"
+#include "LexicographicComparator.h"
 
 bool ip::LexicographicComparator::compare(const ip::Address &arr1, const ip::Address &arr2) {
     bool result = false;

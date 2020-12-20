@@ -9,6 +9,8 @@ namespace ip {
 
     protected:
         ip::Output to_output(const ip::Data &data);
+
+        std::string address_to_str(const ip::Address&);
     };
 }
 

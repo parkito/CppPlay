@@ -3,7 +3,7 @@
 #include "Filter.h"
 
 namespace ip {
-    class FirstByteFilter : public ip::Filter {
+    class FirstAndSecondByteFilter : public ip::Filter {
     public:
         ip::Output filter(const ip::Data &data) override;
     };
