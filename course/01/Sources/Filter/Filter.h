@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Common/IpCommon.h"
+#include "IpCommon.h"
 
 namespace ip {
     class Filter {
@@ -8,7 +8,7 @@ namespace ip {
         virtual ip::Output filter(const ip::Data &data) = 0;
 
     protected:
-        std::string address_to_str(const ip::Address&);
+        std::string address_to_str(const ip::Address &);
     };
 }
 

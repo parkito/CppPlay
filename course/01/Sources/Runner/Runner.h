@@ -1,12 +1,12 @@
 #pragma once
 
-#include "../Common/IpCommon.h"
-#include "../Filter/Filter.h"
-#include "../Filter/SortedFilter.h"
-#include "../Filter/FirstByteFilter.h"
-#include "../Filter/FirstAndSecondByteFilter.h"
+#include "IpCommon.h"
+#include "Filter.h"
+#include "SortedFilter.h"
+#include "FirstByteFilter.h"
+#include "FirstAndSecondByteFilter.h"
 #include <AnyByteFilter.h>
-#include "../Comparator/LexicographicComparator.h"
+#include "LexicographicComparator.h"
 #include <memory>
 #include <utility>
 #include <StdReader.h>

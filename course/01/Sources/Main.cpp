@@ -1,6 +1,6 @@
 #include <iostream>
 #include <memory>
-#include "Runner/Runner.h"
+#include "Runner.h"
 
 int main() {
     std::unique_ptr<ip::Validator> validator{new ip::Validator()};

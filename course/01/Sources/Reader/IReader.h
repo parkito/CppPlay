@@ -2,8 +2,8 @@
 
 #include <optional>
 #include <memory>
-#include "../Common/IpCommon.h"
-#include "../Validator/Validator.h"
+#include "IpCommon.h"
+#include "Validator.h"
 
 namespace ip {
     class IReader {

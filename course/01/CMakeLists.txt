@@ -25,6 +25,7 @@ target_include_directories(
         ip_filter_lib
         PUBLIC
         Sources/Common
+        Sources/Comparator
         Sources/Filter
         Sources/Formatter
         Sources/Reader

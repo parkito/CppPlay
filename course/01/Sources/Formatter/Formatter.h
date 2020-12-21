@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Common/IpCommon.h"
+#include "IpCommon.h"
 
 namespace ip {
     class Formatter {
