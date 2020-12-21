@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
+project("CppPlay")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -38,6 +39,11 @@ add_executable(main25 src/basics/25_rvalue_reference.cpp)
 add_executable(main26 src/basics/26_move.cpp)
 add_executable(main27 src/basics/27_attributes.cpp)
 add_executable(main28 src/basics/28_deduction.cpp)
+add_executable(main29 src/basics/29_binding.cpp)
+add_executable(main30 src/basics/30_constexp_if.cpp)
+add_executable(main31 src/basics/31_filesystem.cpp)
+add_executable(main32 src/basics/32_folding.cpp)
+add_executable(main33 src/basics/33_inline.cpp)
 
 add_executable(chapters_2_1 src/chapters/chapter_02/Ex2_05.cpp)
 add_executable(chapters_2_2 src/chapters/chapter_02/Exer2_8.cpp)
