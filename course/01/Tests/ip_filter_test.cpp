@@ -36,13 +36,6 @@ BOOST_AUTO_TEST_SUITE(ip_filter_test_suite)
         auto actual = read_actual_output();
         auto expected = read_expected_output();
         auto isEqual = std::equal(actual.begin(), actual.end(), expected.begin(), expected.end());
-        auto v = expected[1042];
-        for (size_t i = 0; i < actual.size(); ++i) {
-            if (actual[i] != expected[i]) {
-                std::cout << i << " " << actual[i] << " " << expected[i] << std::endl;
-            }
-        }
-
         BOOST_CHECK(isEqual);
     }
 

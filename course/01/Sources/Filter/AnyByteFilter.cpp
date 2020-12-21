@@ -8,6 +8,7 @@ ip::Output ip::AnyByteFilter::filter(const ip::Data &data) {
         for (auto &comp:address) {
             if (comp == 46) {
                 output.push_back(address_to_str(address));
+                break;
             }
         }
     }
