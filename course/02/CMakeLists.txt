@@ -14,6 +14,7 @@ add_library(
 target_include_directories(
         allocator_lib
         PUBLIC
+        Sources
 )
 
 add_executable(allocator Sources/Main.cpp)

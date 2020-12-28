@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC   -Wpedantic -Wall -Wextra -std=gnu++17
 
 CXX_DEFINES = -Dallocator_lib_EXPORTS
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/code/Sources 
 

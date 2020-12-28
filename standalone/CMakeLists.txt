@@ -44,6 +44,8 @@ add_executable(main30 src/basics/30_constexp_if.cpp)
 add_executable(main31 src/basics/31_filesystem.cpp)
 add_executable(main32 src/basics/32_folding.cpp)
 add_executable(main33 src/basics/33_inline.cpp)
+add_executable(main34 src/basics/34_enable_shared_from_this.cpp)
+add_executable(main35 src/basics/35_empty_base_optimization.cpp)
 
 add_executable(chapters_2_1 src/chapters/chapter_02/Ex2_05.cpp)
 add_executable(chapters_2_2 src/chapters/chapter_02/Exer2_8.cpp)

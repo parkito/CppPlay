@@ -73,3 +73,17 @@ int main() {
     std::cout << "Sorry, weak2 is is no longer valid!\n";
   return 0;
 }
+
+
+auto null_factory() {
+  static std::weak_ptr<FILE> cache;
+  auto spt = cache.lock();
+  if (spt) {
+    std::cout << "hit" << std::endl;
+  } else {
+    std::cout << "miss" << std::endl;
+    spt = std::shared_ptr<FILE>{fopen("/dev/null", "w"), &fclose};
+    cache = spt;
+  }
+  return spt;
+}

@@ -1,23 +1,22 @@
-Start testing: Dec 28 04:48 GMT
+Start testing: Dec 28 04:53 GMT
 ----------------------------------------------------------
-1/1 Testing: calculator_test
-1/1 Test: calculator_test
+1/1 Testing: allocator_test
+1/1 Test: allocator_test
 Command: "/code/cmake-build-debug/allocator_test"
 Directory: /code/cmake-build-debug
-"calculator_test" start time: Dec 28 04:48 GMT
+"allocator_test" start time: Dec 28 04:53 GMT
 Output:
 ----------------------------------------------------------
-Running 2 test cases...
-/code/Tests/allocator_test.cpp(13): [1;31;49merror: in "allocator_test_suite/fa_1": check Calculator::calculate_fa(1) == 2 has failed[0;39;49m
+Running 10 test cases...
 
-[1;31;49m*** 1 failure is detected in the test module "helloworld_test_module"
+[1;32;49m*** No errors detected
 [0;39;49m
 <end of output>
-Test time =   0.02 sec
+Test time =   0.04 sec
 ----------------------------------------------------------
-Test Failed.
-"calculator_test" end time: Dec 28 04:48 GMT
-"calculator_test" time elapsed: 00:00:00
+Test Passed.
+"allocator_test" end time: Dec 28 04:53 GMT
+"allocator_test" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Dec 28 04:48 GMT
+End testing: Dec 28 04:53 GMT
