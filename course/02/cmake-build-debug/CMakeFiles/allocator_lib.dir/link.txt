@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -g  -shared -Wl,-soname,liballocator_lib.so -o liballocator_lib.so CMakeFiles/allocator_lib.dir/Sources/Allocator.cpp.o 
