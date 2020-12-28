@@ -7,7 +7,6 @@ find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 add_library(
         ip_filter_lib
-        SHARED
         Sources/Filter/Filter.cpp
         Sources/Filter/FirstAndSecondByteFilter.cpp
         Sources/Filter/FirstByteFilter.cpp

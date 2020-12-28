@@ -230,10 +230,10 @@
 				</MakeCommands>
 			</Target>
 			<Target title="ip_filter_lib">
-				<Option output="/tmp/tmp.rcLdF2VN1V/cmake-build-debug/libip_filter_lib.so" prefix_auto="0" extension_auto="0"/>
+				<Option output="/tmp/tmp.rcLdF2VN1V/cmake-build-debug/libip_filter_lib.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/tmp/tmp.rcLdF2VN1V/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="3"/>
+				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/tmp/tmp.rcLdF2VN1V/Sources/Common"/>
@@ -259,10 +259,10 @@
 				</MakeCommands>
 			</Target>
 			<Target title="ip_filter_lib/fast">
-				<Option output="/tmp/tmp.rcLdF2VN1V/cmake-build-debug/libip_filter_lib.so" prefix_auto="0" extension_auto="0"/>
+				<Option output="/tmp/tmp.rcLdF2VN1V/cmake-build-debug/libip_filter_lib.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/tmp/tmp.rcLdF2VN1V/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="3"/>
+				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/tmp/tmp.rcLdF2VN1V/Sources/Common"/>

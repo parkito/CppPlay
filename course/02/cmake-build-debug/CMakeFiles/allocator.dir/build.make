@@ -79,7 +79,7 @@ allocator_EXTERNAL_OBJECTS =
 
 allocator: CMakeFiles/allocator.dir/Sources/Main.cpp.o
 allocator: CMakeFiles/allocator.dir/build.make
-allocator: liballocator_lib.so
+allocator: liballocator_lib.a
 allocator: CMakeFiles/allocator.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable allocator"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/allocator.dir/link.txt --verbose=$(VERBOSE)

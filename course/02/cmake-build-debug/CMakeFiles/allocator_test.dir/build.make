@@ -79,7 +79,7 @@ allocator_test_EXTERNAL_OBJECTS =
 
 allocator_test: CMakeFiles/allocator_test.dir/Tests/allocator_test.cpp.o
 allocator_test: CMakeFiles/allocator_test.dir/build.make
-allocator_test: liballocator_lib.so
+allocator_test: liballocator_lib.a
 allocator_test: /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so.1.71.0
 allocator_test: CMakeFiles/allocator_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable allocator_test"

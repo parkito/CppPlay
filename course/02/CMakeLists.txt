@@ -7,7 +7,6 @@ find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 add_library(
         allocator_lib
-        SHARED
         Sources/Calculator.cpp
 )
 
@@ -51,7 +50,11 @@ target_link_libraries(
         ${Boost_LIBRARIES}
 )
 
-install(TARGETS allocator RUNTIME DESTINATION bin)
+install(
+        TARGETS allocator
+        COMPONENT linapp
+)
+
 
 set(CPACK_GENERATOR DEB)
 

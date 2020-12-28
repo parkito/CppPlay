@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/ip_filter.dir/Sources/Main.cpp.o  -o ip_filter  -Wl,-rpath,/tmp/tmp.rcLdF2VN1V/cmake-build-debug: libip_filter_lib.so -lpthread 
+/usr/bin/c++  -g   CMakeFiles/ip_filter.dir/Sources/Main.cpp.o  -o ip_filter  libip_filter_lib.a -lpthread 

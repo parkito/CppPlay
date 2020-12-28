@@ -79,7 +79,7 @@ ip_filter_test_EXTERNAL_OBJECTS =
 
 ip_filter_test: CMakeFiles/ip_filter_test.dir/Tests/ip_filter_test.cpp.o
 ip_filter_test: CMakeFiles/ip_filter_test.dir/build.make
-ip_filter_test: libip_filter_lib.so
+ip_filter_test: libip_filter_lib.a
 ip_filter_test: /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so.1.71.0
 ip_filter_test: CMakeFiles/ip_filter_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.rcLdF2VN1V/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ip_filter_test"

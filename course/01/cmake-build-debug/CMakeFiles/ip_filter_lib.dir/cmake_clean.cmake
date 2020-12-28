@@ -10,8 +10,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/ip_filter_lib.dir/Sources/Reader/StdReader.cpp.o"
   "CMakeFiles/ip_filter_lib.dir/Sources/Runner/Runner.cpp.o"
   "CMakeFiles/ip_filter_lib.dir/Sources/Validator/Validator.cpp.o"
+  "libip_filter_lib.a"
   "libip_filter_lib.pdb"
-  "libip_filter_lib.so"
 )
 
 # Per-language clean rules from dependency scanning.

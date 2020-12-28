@@ -4,10 +4,17 @@
 #include "Calculator.h"
 
 int main() {
-//    auto mp = std::map<int, FaFi>();
-    std::cout << Calculator::calculate_fa(6)<<std::endl;
+    auto map = std::map<int, FaFi>{};
 
-    std::cout << Calculator::calculate_fi(10);
+    for (int i = 0; i < 10; ++i) {
+        auto fafi = FaFi(Calculator::calculate_fa(i), Calculator::calculate_fi(i));
+        map.emplace(i, fafi);
+    }
+
+    for (auto &el: map) {
+        std::cout << "Key = " << el.first << " FA = " << el.second.get_fa() << " FI = " << el.second.get_fi()
+                  << std::endl;
+    }
 }
 
 

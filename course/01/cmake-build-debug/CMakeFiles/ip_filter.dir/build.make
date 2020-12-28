@@ -79,7 +79,7 @@ ip_filter_EXTERNAL_OBJECTS =
 
 ip_filter: CMakeFiles/ip_filter.dir/Sources/Main.cpp.o
 ip_filter: CMakeFiles/ip_filter.dir/build.make
-ip_filter: libip_filter_lib.so
+ip_filter: libip_filter_lib.a
 ip_filter: CMakeFiles/ip_filter.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.rcLdF2VN1V/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ip_filter"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ip_filter.dir/link.txt --verbose=$(VERBOSE)

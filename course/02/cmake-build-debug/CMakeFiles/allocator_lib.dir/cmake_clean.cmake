@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/allocator_lib.dir/Sources/Calculator.cpp.o"
+  "liballocator_lib.a"
   "liballocator_lib.pdb"
-  "liballocator_lib.so"
 )
 
 # Per-language clean rules from dependency scanning.

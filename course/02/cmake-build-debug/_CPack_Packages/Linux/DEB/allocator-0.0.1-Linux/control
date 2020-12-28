@@ -1,0 +1,10 @@
+Architecture: amd64
+Depends: libc6 (>= 2.4), libgcc-s1 (>= 3.0), libstdc++6 (>= 5)
+Description: allocator built using CMake
+Maintainer: artyom-karnov@yandex.ru
+Package: allocator
+Priority: optional
+Section: devel
+Version: 0.0.1
+Installed-Size: 35
+
