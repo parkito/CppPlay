@@ -1,14 +1,16 @@
 #define BOOST_TEST_MODULE helloworld_test_module
 
 #include <boost/test/unit_test.hpp>
+#include "../Sources/Calculator.h"
 
-BOOST_AUTO_TEST_SUITE(ip_filter_test_suite)
+BOOST_AUTO_TEST_SUITE(allocator_test_suite)
 
-BOOST_AUTO_TEST_CASE(if_filter_test) {
-        auto actual = read_actual_output();
-        auto expected = read_expected_output();
-        auto isEqual = std::equal(actual.begin(), actual.end(), expected.begin(), expected.end());
-        BOOST_CHECK(isEqual);
-}
+    BOOST_AUTO_TEST_CASE(fa_0) {
+        BOOST_CHECK(Calculator::calculate_fa(0) == 1);
+    }
+
+    BOOST_AUTO_TEST_CASE(fa_1) {
+        BOOST_CHECK(Calculator::calculate_fa(1) == 2);
+    }
 
 BOOST_AUTO_TEST_SUITE_END()

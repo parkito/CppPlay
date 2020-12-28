@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/allocator.dir/Sources/Main.cpp.o  -o allocator  -Wl,-rpath,/tmp/02/cmake-build-debug: liballocator_lib.so -lpthread 
+/usr/bin/c++     CMakeFiles/allocator.dir/Sources/Main.cpp.o  -o allocator  -Wl,-rpath,/code/cmake-build-debug: liballocator_lib.so -lpthread 

@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/allocator_test.dir/Tests/allocator_test.cpp.o  -o allocator_test  -Wl,-rpath,/tmp/02/cmake-build-debug liballocator_lib.so /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so.1.71.0 
+/usr/bin/c++     CMakeFiles/allocator_test.dir/Tests/allocator_test.cpp.o  -o allocator_test  -Wl,-rpath,/code/cmake-build-debug liballocator_lib.so /usr/lib/x86_64-linux-gnu/libboost_unit_test_framework.so.1.71.0 

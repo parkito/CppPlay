@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/02
+CMAKE_SOURCE_DIR = /code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/02/cmake-build-debug
+CMAKE_BINARY_DIR = /code/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -137,7 +137,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /tmp/02/cmake-build-debug/CPackSourceConfig.cmake
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /code/cmake-build-debug/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -159,9 +159,9 @@ install/local/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/02/cmake-build-debug/CMakeFiles /tmp/02/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /code/cmake-build-debug/CMakeFiles /code/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /tmp/02/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /code/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -228,32 +228,32 @@ allocator_lib/fast:
 	$(MAKE) -f CMakeFiles/allocator_lib.dir/build.make CMakeFiles/allocator_lib.dir/build
 .PHONY : allocator_lib/fast
 
-Sources/Allocator.o: Sources/Allocator.cpp.o
+Sources/Calculator.o: Sources/Calculator.cpp.o
 
-.PHONY : Sources/Allocator.o
+.PHONY : Sources/Calculator.o
 
 # target to build an object file
-Sources/Allocator.cpp.o:
-	$(MAKE) -f CMakeFiles/allocator_lib.dir/build.make CMakeFiles/allocator_lib.dir/Sources/Allocator.cpp.o
-.PHONY : Sources/Allocator.cpp.o
+Sources/Calculator.cpp.o:
+	$(MAKE) -f CMakeFiles/allocator_lib.dir/build.make CMakeFiles/allocator_lib.dir/Sources/Calculator.cpp.o
+.PHONY : Sources/Calculator.cpp.o
 
-Sources/Allocator.i: Sources/Allocator.cpp.i
+Sources/Calculator.i: Sources/Calculator.cpp.i
 
-.PHONY : Sources/Allocator.i
+.PHONY : Sources/Calculator.i
 
 # target to preprocess a source file
-Sources/Allocator.cpp.i:
-	$(MAKE) -f CMakeFiles/allocator_lib.dir/build.make CMakeFiles/allocator_lib.dir/Sources/Allocator.cpp.i
-.PHONY : Sources/Allocator.cpp.i
+Sources/Calculator.cpp.i:
+	$(MAKE) -f CMakeFiles/allocator_lib.dir/build.make CMakeFiles/allocator_lib.dir/Sources/Calculator.cpp.i
+.PHONY : Sources/Calculator.cpp.i
 
-Sources/Allocator.s: Sources/Allocator.cpp.s
+Sources/Calculator.s: Sources/Calculator.cpp.s
 
-.PHONY : Sources/Allocator.s
+.PHONY : Sources/Calculator.s
 
 # target to generate assembly for a file
-Sources/Allocator.cpp.s:
-	$(MAKE) -f CMakeFiles/allocator_lib.dir/build.make CMakeFiles/allocator_lib.dir/Sources/Allocator.cpp.s
-.PHONY : Sources/Allocator.cpp.s
+Sources/Calculator.cpp.s:
+	$(MAKE) -f CMakeFiles/allocator_lib.dir/build.make CMakeFiles/allocator_lib.dir/Sources/Calculator.cpp.s
+.PHONY : Sources/Calculator.cpp.s
 
 Sources/Main.o: Sources/Main.cpp.o
 
@@ -327,9 +327,9 @@ help:
 	@echo "... allocator"
 	@echo "... install/local"
 	@echo "... allocator_lib"
-	@echo "... Sources/Allocator.o"
-	@echo "... Sources/Allocator.i"
-	@echo "... Sources/Allocator.s"
+	@echo "... Sources/Calculator.o"
+	@echo "... Sources/Calculator.i"
+	@echo "... Sources/Calculator.s"
 	@echo "... Sources/Main.o"
 	@echo "... Sources/Main.i"
 	@echo "... Sources/Main.s"

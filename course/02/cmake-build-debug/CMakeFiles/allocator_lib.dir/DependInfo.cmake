@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/tmp/02/Sources/Allocator.cpp" "/tmp/02/cmake-build-debug/CMakeFiles/allocator_lib.dir/Sources/Allocator.cpp.o"
+  "/code/Sources/Calculator.cpp" "/code/cmake-build-debug/CMakeFiles/allocator_lib.dir/Sources/Calculator.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

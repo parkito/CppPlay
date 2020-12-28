@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/code/Sources/Calculator.h
+
+/code/Tests/allocator_test.cpp
+boost/test/unit_test.hpp
+-
+../Sources/Calculator.h
+/code/Sources/Calculator.h
+

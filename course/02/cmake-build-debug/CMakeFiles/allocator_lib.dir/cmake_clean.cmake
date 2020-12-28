@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/allocator_lib.dir/Sources/Allocator.cpp.o"
+  "CMakeFiles/allocator_lib.dir/Sources/Calculator.cpp.o"
   "liballocator_lib.pdb"
   "liballocator_lib.so"
 )

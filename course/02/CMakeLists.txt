@@ -8,7 +8,7 @@ find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 add_library(
         allocator_lib
         SHARED
-        Sources/Allocator.cpp
+        Sources/Calculator.cpp
 )
 
 target_include_directories(

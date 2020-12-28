@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/code/Sources/Calculator.h
+
+/code/Sources/FaFi.h
+
+/code/Sources/Main.cpp
+iostream
+-
+map
+-
+FaFi.h
+/code/Sources/FaFi.h
+Calculator.h
+/code/Sources/Calculator.h
+
