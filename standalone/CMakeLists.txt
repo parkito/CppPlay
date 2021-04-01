@@ -9,8 +9,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 add_compile_options(-std=c++2a)
 message("Version ${CMAKE_CXX_COMPILER_VERSION}")
 
-add_executable(GreeterStandalone ${sources} src/algo/1/Calculator.cpp src/algo/1/Operator.cpp)
-
 add_executable(main1 src/basics/01_hello.cpp src/basics/20_vacabluary.cpp)
 add_executable(main2 src/basics/02_type.cpp)
 #add_executable(main3 src/basics/03_const.cpp)
@@ -46,6 +44,7 @@ add_executable(main32 src/basics/32_folding.cpp)
 add_executable(main33 src/basics/33_inline.cpp)
 add_executable(main34 src/basics/34_enable_shared_from_this.cpp)
 add_executable(main35 src/basics/35_empty_base_optimization.cpp)
+add_executable(main36 src/basics/36_hexadecimal.cpp)
 
 add_executable(chapters_2_1 src/chapters/chapter_02/Ex2_05.cpp)
 add_executable(chapters_2_2 src/chapters/chapter_02/Exer2_8.cpp)

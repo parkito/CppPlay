@@ -1,10 +1,10 @@
-Start testing: Dec 28 05:40 GMT
+Start testing: Jan 08 04:31 GMT
 ----------------------------------------------------------
 1/1 Testing: allocator_test
 1/1 Test: allocator_test
 Command: "/code/cmake-build-debug/allocator_test"
 Directory: /code/cmake-build-debug
-"allocator_test" start time: Dec 28 05:40 GMT
+"allocator_test" start time: Jan 08 04:31 GMT
 Output:
 ----------------------------------------------------------
 Running 10 test cases...
@@ -15,8 +15,8 @@ Running 10 test cases...
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"allocator_test" end time: Dec 28 05:40 GMT
+"allocator_test" end time: Jan 08 04:31 GMT
 "allocator_test" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Dec 28 05:40 GMT
+End testing: Jan 08 04:31 GMT

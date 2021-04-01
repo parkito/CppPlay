@@ -15,6 +15,11 @@ int main() {
         std::cout << "Key = " << el.first << " FA = " << el.second.get_fa() << " FI = " << el.second.get_fi()
                   << std::endl;
     }
+
+    void *ptr = malloc(10);
+    free(ptr);
+
+    return 0;
 }
 
 
