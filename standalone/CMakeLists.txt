@@ -45,6 +45,7 @@ add_executable(main33 src/basics/33_inline.cpp)
 add_executable(main34 src/basics/34_enable_shared_from_this.cpp)
 add_executable(main35 src/basics/35_empty_base_optimization.cpp)
 add_executable(main36 src/basics/36_hexadecimal.cpp)
+add_executable(main37 src/basics/37_virtual.cpp)
 
 add_executable(chapters_2_1 src/chapters/chapter_02/Ex2_05.cpp)
 add_executable(chapters_2_2 src/chapters/chapter_02/Exer2_8.cpp)
