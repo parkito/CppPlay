@@ -9,17 +9,23 @@ void action() {
   cin >> act;
   int delta = 0;
 
+  if (int a = 0; a > 0) {
+    cout << "Greater than 0";
+  } else {
+    cout << "Less than 0";
+  }
+
   for (char ch : act) {
     switch (ch) {
-      case 'u':  // up case 'n': // nor th
-        ++delta;
-        break;
-      case 'r':  // right case 'e': // east
-        --delta;
-        break;
-        // ... more actions ...
-      default:
-        cout << "I freeze!\n";
+    case 'u': // up case 'n': // nor th
+      ++delta;
+      break;
+    case 'r': // right case 'e': // east
+      --delta;
+      break;
+      // ... more actions ...
+    default:
+      cout << "I freeze!\n";
     }
   }
 }
