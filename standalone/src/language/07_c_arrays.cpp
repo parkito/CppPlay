@@ -22,6 +22,13 @@ void iterate(int arr[], size_t size) {
   std::cout << std::endl;
 }
 
+void iterate(int arr[]) {
+  //  for (const int &el : arr) { cannot do that because the compiler doesn't
+  //  know the size
+  //    std::cout << *i << " ";
+  //  }
+}
+
 void iterate(int *begin, const int *end) {
   for (; begin != end; ++begin) {
     std::cout << *begin << " ";
@@ -53,4 +60,8 @@ int main() {
   int *b = &arr3[5];
   iterate(a, b);
   std::cout << *max_element(a, b);
+
+  for (const int &el : arr3) {
+    std::cout << el << " ";
+  }
 }

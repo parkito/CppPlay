@@ -55,4 +55,8 @@ add_executable(language_04 src/language/04_conditional.cpp)
 add_executable(language_05 src/language/05_spaceship_comparison.cpp)
 add_executable(language_06 src/language/06_attributes.cpp)
 add_executable(language_07 src/language/07_c_arrays.cpp)
+add_executable(language_08 src/language/08_arrays.cpp)
+add_executable(language_09 src/language/09_vectors.cpp)
+add_executable(language_10 src/language/10_pairs.cpp)
+add_executable(language_11 src/language/11_optional.cpp)
 
