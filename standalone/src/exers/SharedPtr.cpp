@@ -2,80 +2,83 @@
 #include <utility>
 struct Expression {
 
-  explicit Expression(std::string data_) : data(std::move(data_)) {}
+  explicit Expression(std::string data_) : data(data_) {}
+
+  ~Expression() { std::cout << "Destructor"; }
 
   std::string data;
 };
 struct Number;
 struct BinaryOperation;
 
-struct SharePtrContext {
-  explicit SharePtrContext(Expression *ptr) : ptr_(ptr), refCounter(1) {}
-
-  ~SharePtrContext() { delete ptr_; }
-
-  Expression *ptr_;
-  int refCounter;
-};
-
 struct SharedPtr {
 
-  explicit SharedPtr(Expression *ptr = nullptr) {
-    if (ptr != nullptr) {
-      context = new SharePtrContext(ptr);
+  explicit SharedPtr(Expression *ptr = nullptr) : ptr_(ptr) {
+    if (ptr_) {
+      refCounter = new int(1);
     }
   }
 
   ~SharedPtr() {
-    if (--context->refCounter == 0) {
-      delete context;
+    if (refCounter && --*refCounter == 0) {
+      delete ptr_;
+      delete refCounter;
     }
   }
 
-  SharedPtr(const SharedPtr &ptr) {
-    if (ptr.context->refCounter > 0) {
-      context = ptr.context;
-      context->refCounter++;
+  SharedPtr(const SharedPtr &ptr) : ptr_(ptr.ptr_), refCounter(ptr.refCounter) {
+    if (refCounter) {
+      *refCounter++;
     }
   }
 
   SharedPtr &operator=(const SharedPtr &ptr) {
     if (this != &ptr) {
-      if (--context->refCounter == 0) {
-        delete context;
-      }
-      context = ptr.context;
-      context->refCounter++;
+      clearThis();
+      ptr_ = ptr.ptr_;
+      refCounter = ptr.refCounter;
+      *refCounter++;
     }
     return *this;
   }
 
-  Expression *get() const { return context->ptr_; }
+  Expression *get() const { return ptr_; }
 
   void reset(Expression *ptr = nullptr) {
-    if (context->refCounter == 0) {
-      delete context;
-      context = new SharePtrContext(ptr);
+    clearThis();
+    if (ptr) {
+      ptr_ = ptr;
+      refCounter = new int(1);
     }
   }
-  Expression &operator*() const { return *context->ptr_; }
+  Expression &operator*() const { return *ptr_; }
 
-  Expression *operator->() const { return context->ptr_; }
+  Expression *operator->() const { return ptr_; }
+
+  Expression *ptr_;
+  int *refCounter;
 
 private:
-  SharePtrContext *context = nullptr;
+  void clearThis() const {
+    if (refCounter && --*refCounter == 0) {
+      delete ptr_;
+      delete refCounter;
+    }
+  }
 };
 
-int main() {
-  Expression ex{"daaa"};
-  SharedPtr p2;
-
-  {
-    SharedPtr p1{&ex};
-    SharedPtr p3{p1};
-    p2 = p3;
-    std::cout << p3.refCounter << std::endl;
+template <class T> void assert(T expected, T actual) {
+  std::cout << "Expected = " << expected << " Actual = " << actual << std::endl;
+  if (expected != actual) {
+    throw std::runtime_error("Assertion has not passed");
   }
-  std::cout << p2->data << std::endl;
-  std::cout << p2.refCounter << std::endl;
 }
+
+void test1_simple_create() {
+  Expression ex{"daaa"};
+  SharedPtr p1{&ex};
+
+  //  assert(1, *p1.refCounter);
+}
+
+int main() { test1_simple_create(); }
