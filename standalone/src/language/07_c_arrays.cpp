@@ -27,6 +27,11 @@ void iterate(int arr[]) {
   //  know the size
   //    std::cout << *i << " ";
   //  }
+
+  std::cout << sizeof(arr) << '\n'; // will print sizeof(int) * arr length
+
+  int *ptr{arr};
+  std::cout << sizeof(ptr) << '\n'; // will print the size of a pointer
 }
 
 void iterate(int *begin, const int *end) {

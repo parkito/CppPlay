@@ -47,7 +47,13 @@ add_executable(main37 src/basics/37_virtual.cpp)
 add_executable(exers1 src/exers/SharedPtr.cpp)
 
 
-add_executable(patterns1 src/patterns/creational/builder/SimpleBuilder.cpp)
+add_executable(patterns1 src/patterns/creational/builder/Builders.cpp)
+
+add_library(
+        telescoping-builder
+        src/patterns/creational/builder/Person.cpp
+        src/patterns/creational/builder/telescoping/PersonBuilder.cpp
+)
 
 add_executable(language_01 src/language/01_namespace.cpp)
 add_executable(language_02 src/language/02_literals.cpp)
