@@ -5,6 +5,12 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+add_library(
+        patterns
+        src/patterns/creational/builder/Person.cpp
+        src/patterns/creational/builder/telescoping/PersonBuilder.cpp
+)
+
 #set(CXXFLAGS ${CXXFLAGS} -std=c++2a)
 add_compile_options(-std=c++2a)
 message("Version ${CMAKE_CXX_COMPILER_VERSION}")
@@ -46,14 +52,7 @@ add_executable(main37 src/basics/37_virtual.cpp)
 
 add_executable(exers1 src/exers/SharedPtr.cpp)
 
-
 add_executable(patterns1 src/patterns/creational/builder/Builders.cpp)
-
-add_library(
-        telescoping-builder
-        src/patterns/creational/builder/Person.cpp
-        src/patterns/creational/builder/telescoping/PersonBuilder.cpp
-)
 
 add_executable(language_01 src/language/01_namespace.cpp)
 add_executable(language_02 src/language/02_literals.cpp)
@@ -69,3 +68,14 @@ add_executable(language_11 src/language/11_optional.cpp)
 add_executable(language_12 src/language/12_initializer_list.cpp)
 add_executable(language_13 src/language/13_raw_pointers.cpp)
 
+target_include_directories(
+        patterns
+        PUBLIC
+        src/patterns/creational/builder/telescoping
+        src/patterns/creational/builder
+)
+
+target_link_libraries(
+        patterns1
+        patterns
+)

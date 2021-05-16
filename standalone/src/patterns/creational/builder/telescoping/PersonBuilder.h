@@ -1,14 +1,15 @@
 #pragma once
 
-#include "../Person.h"
+#include "Person.h"
 #include <memory>
+
 class PersonBuilder {
 public:
-  PersonBuilder();
+  explicit PersonBuilder();
 
-  std::unique_ptr<PersonBuilder> withId(std::string id);
+  std::unique_ptr<PersonBuilder> withId(const std::string &id);
 
-  std::unique_ptr<PersonBuilder> withName(std::string name);
+  std::unique_ptr<PersonBuilder> withName(const std::string &name);
 
   std::unique_ptr<PersonBuilder> withAge(unsigned short age);
 
