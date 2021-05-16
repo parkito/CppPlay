@@ -7,8 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(
         patterns
-        src/patterns/creational/builder/Person.cpp
-        src/patterns/creational/builder/telescoping/PersonBuilder.cpp
+        src/patterns/creational/builder/telescoping/Person.cpp
 )
 
 #set(CXXFLAGS ${CXXFLAGS} -std=c++2a)
@@ -72,7 +71,6 @@ target_include_directories(
         patterns
         PUBLIC
         src/patterns/creational/builder/telescoping
-        src/patterns/creational/builder
 )
 
 target_link_libraries(
