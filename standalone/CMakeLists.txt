@@ -66,6 +66,7 @@ add_executable(language_10 src/language/10_pairs.cpp)
 add_executable(language_11 src/language/11_optional.cpp)
 add_executable(language_12 src/language/12_initializer_list.cpp)
 add_executable(language_13 src/language/13_raw_pointers.cpp)
+add_executable(language_14 src/language/14_const.cpp)
 
 target_include_directories(
         patterns
