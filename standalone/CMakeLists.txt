@@ -16,7 +16,6 @@ message("Version ${CMAKE_CXX_COMPILER_VERSION}")
 
 add_executable(main1 src/basics/01_hello.cpp src/basics/20_vacabluary.cpp)
 add_executable(main2 src/basics/02_type.cpp)
-add_executable(main4_1 src/basics/04_1_references.cpp)
 add_executable(main4 src/basics/04_pointers.cpp)
 add_executable(main6 src/basics/06_struct.cpp)
 add_executable(main7 src/basics/07_class.cpp)
@@ -68,6 +67,7 @@ add_executable(language_13 src/language/13_raw_pointers.cpp)
 add_executable(language_14 src/language/14_const.cpp)
 add_executable(language_15 src/language/15_constexpr.cpp)
 add_executable(language_16 src/language/16_references.cpp)
+add_executable(language_17 src/language/17_type_alias.cpp)
 
 target_include_directories(
         patterns

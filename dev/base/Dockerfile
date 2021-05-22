@@ -5,7 +5,7 @@ ENV NOTVISIBLE "in users profile"
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && apt-get update && apt-get upgrade -y && apt-get install -y \
-    software-properties-common apt-utils openssh-server build-essential gdb gdbserver rsync vim cmake valgrind fish ltrace strace \
+    software-properties-common apt-utils git libpq-dev openssh-server build-essential gdb gdbserver rsync vim cmake valgrind fish ltrace strace \
     && add-apt-repository ppa:ubuntu-toolchain-r/test \
     && add-apt-repository universe \
     && apt update && apt-get install -y gcc-9 g++-9 gcc-10 g++-10 libfmt-dev \

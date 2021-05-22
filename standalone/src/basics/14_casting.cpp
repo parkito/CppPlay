@@ -51,17 +51,18 @@ public:
 void f(int &x) { x = 5; }
 
 int main() {
-  Human *h = new Human;  // Pointer to object of derived type
+  auto *h = new Human;  // Pointer to object of derived type
   // cast it to pointer to base type. static_cast here is unnecessary
-  Mammal *m = static_cast<Mammal *>(h);
-  Mammal *m2 = static_cast<Human *>(m);  // cast back to pointer to derived type
+  auto *m = static_cast<Mammal *>(h);
+  Mammal *m2;
+  m2 = static_cast<Human *>(m); // cast back to pointer to derived type
 
-  Human *h1 = new Human;                    // Pointer to object of derived type
-  Mammal *m1 = dynamic_cast<Mammal *>(h1);  // ok
+  auto *h1 = new Human;                    // Pointer to object of derived type
+  auto *m1 = dynamic_cast<Mammal *>(h1);  // ok
                                             //  Human *h2 = dynamic_cast<Human *>(m1);    // Error
 
-  Mammal *m3 = new Mammal;
-  Human *h3 = dynamic_cast<Human *>(m3);
+  auto *m3 = new Mammal;
+  auto *h3 = dynamic_cast<Human *>(m3);
   if (h3 == nullptr)
     std::cout << "Oops! Cast failed!" << std::endl;
   else
