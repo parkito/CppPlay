@@ -7,19 +7,21 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(
         db-rest
-        Source/User.cpp
+        src/entity/User.cpp
+        src/repository/UserRepository.cpp
 )
 
 #set(CXXFLAGS ${CXXFLAGS} -std=c++2a)
 add_compile_options(-std=c++2a)
 message("Version ${CMAKE_CXX_COMPILER_VERSION}")
 
-add_executable(main Source/Main.cpp)
+add_executable(main src/Main.cpp)
 
 target_include_directories(
         db-rest
         PUBLIC
-        Source
+        src/entity
+        src/repository
 )
 
 target_link_libraries(
