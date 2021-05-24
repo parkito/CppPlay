@@ -6,13 +6,13 @@
 
 class SessionFactory {
 public:
-    static std::unique_ptr<soci::session> createSession();
 
-    static std::unique_ptr<soci::session> globalSession();
+    std::unique_ptr<soci::session> getSession();
 
-    static void resetGlobalSession();
+    void closeSession();
 
 private:
-    static std::unique_ptr<soci::session> m_globalSession;
+    std::unique_ptr<soci::session> &m_globalSession;
 };
+
 

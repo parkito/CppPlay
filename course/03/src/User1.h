@@ -1,11 +1,9 @@
 #pragma once
 
 #include <string>
-#include <values.h>
 
-namespace cld {
-    class User {
-
+namespace notSTD {
+    class User1 {
     public:
         [[nodiscard]] long getId() const;
 
@@ -25,4 +23,3 @@ namespace cld {
         std::string password;
     };
 }
-

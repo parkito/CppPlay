@@ -1,7 +1,7 @@
 
 #include "SessionFactory.h"
 
-std::unique_ptr<soci::session> SessionFactory::globalSession() {
+std::unique_ptr<soci::session> SessionFactory::getSession() {
     if (m_globalSession == nullptr) {
         m_globalSession = std::make_unique<soci::session>(soci::postgresql,
                                                           "host=postgres user=postgres password=password");
@@ -10,12 +10,8 @@ std::unique_ptr<soci::session> SessionFactory::globalSession() {
     return std::move(m_globalSession);
 }
 
-void SessionFactory::resetGlobalSession() {
-    if (m_globalSession != nullptr) {
+void SessionFactory::closeSession() {
+    if (m_globalSession == nullptr) {
         m_globalSession.reset();
     }
-}
-
-std::unique_ptr<soci::session> SessionFactory::createSession() {
-    return std::unique_ptr<soci::session>();
 }
