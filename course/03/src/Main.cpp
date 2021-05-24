@@ -1,5 +1,5 @@
-#include<iostream>
+#include <iostream>
 
 int main() {
-std::cout << "F";
+    std::cout << "F " << __cplusplus;
 }

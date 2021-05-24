@@ -8,20 +8,24 @@ class PersonBuilder;
 class Person {
 
 public:
-  std::string getId() const;
+  [[nodiscard]] std::string getId() const;
 
-  std::string getName() const;
+  [[nodiscard]] std::string getName() const;
 
-  unsigned short getAge() const;
+  [[nodiscard]] unsigned short getAge() const;
 
   static PersonBuilder builder();
+
+  friend std::ostream &operator<<(std::ostream &os, const Person &person);
+
+  bool operator==(const Person &person) const;
 
   friend class PersonBuilder;
 
 private:
   std::string id;
   std::string name;
-  unsigned short age;
+  unsigned short age{};
 
   Person() = default;
 };
@@ -41,3 +45,15 @@ public:
 private:
   std::unique_ptr<Person> person;
 };
+
+struct PersonHash{
+  size_t operator()(const Person &person) const;
+};
+
+namespace std {
+template <> class hash<Person> {
+public:
+  size_t operator()(const Person &person) const;
+};
+
+} // namespace std
