@@ -1,10 +1,6 @@
 #include "UserRepository.h"
 
-cld::UserRepository::UserRepository(soci::session &c_session) : store(c_session) {}
-
-void cld::UserRepository::isave(soci::session &store, cld::User &usr) {
-//    store << "INSERT INTO users (id, email, password) VALUES (:id, :email, :password)", soci::use(usr);
-}
+cld::UserRepository::UserRepository(std::unique_ptr<soci::session> &c_session) : store(c_session) {}
 
 void soci::type_conversion<cld::User>::from_base(const values &v, indicator, cld::User &user) {
     user.setId(v.get<long>("id"));
@@ -20,7 +16,7 @@ void soci::type_conversion<cld::User>::to_base(const cld::User &user, values &v,
 }
 
 bool cld::UserRepository::save(cld::User &user) {
-    isave(store, user);
+    *store << "INSERT INTO users (id, email, password) VALUES (:id, :email, :password)", soci::use(user);
     return true;
 }
 

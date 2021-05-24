@@ -1,12 +1,13 @@
 #pragma once
 
 #include "User.h"
+#include <soci/soci.h>
 #include "SessionFactory.h"
 
 namespace cld {
     class UserRepository {
     public:
-        explicit UserRepository(soci::session &session);
+        explicit UserRepository(std::unique_ptr<soci::session> &);
 
         bool save(cld::User &user);
 
@@ -15,9 +16,7 @@ namespace cld {
         User findByEmail(std::string email);
 
     private:
-        soci::session &store;
-
-        void isave(soci::session &store, cld::User &usr);
+        std::unique_ptr<soci::session> &store;
     };
 }
 

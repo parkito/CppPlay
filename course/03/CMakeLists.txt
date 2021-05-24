@@ -15,7 +15,6 @@ add_library(
         src/entity/User.cpp
         src/repository/UserRepository.cpp
         src/repository/SessionFactory.cpp
-        src/User1.cpp
 )
 
 #set(CXXFLAGS ${CXXFLAGS} -std=c++2a)
