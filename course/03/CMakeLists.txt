@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_C_COMPILER "gcc-11")
 
 project("db-rest-prj")
 
@@ -15,6 +14,7 @@ add_library(
         db-rest
         src/entity/User.cpp
         src/repository/UserRepository.cpp
+        src/repository/SessionFactory.cpp
 )
 
 #set(CXXFLAGS ${CXXFLAGS} -std=c++2a)
@@ -27,6 +27,8 @@ target_include_directories(
         PUBLIC
         src/entity
         src/repository
+        /usr/local/include/soci
+        /usr/include/postgresql
 )
 
 target_link_libraries(

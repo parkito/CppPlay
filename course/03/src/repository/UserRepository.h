@@ -1,6 +1,7 @@
 #pragma once
 
 #include "User.h"
+#include "SessionFactory.h"
 
 namespace cld {
     class UserRepository {

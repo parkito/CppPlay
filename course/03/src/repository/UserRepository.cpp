@@ -1,7 +1,9 @@
 #include "UserRepository.h"
 
 bool cld::UserRepository::save(cld::User &user) {
-    return false;
+    auto session = SessionFactory::globalSession();
+//    *session << "INSERT INTO users (id, email, password) VALUES (:id, :email, :password)", soci::use(user);
+    return true;
 }
 
 cld::User cld::UserRepository::findById(long id) {
