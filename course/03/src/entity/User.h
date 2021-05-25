@@ -26,3 +26,13 @@ namespace cld {
     };
 }
 
+namespace soci {
+    template<>
+    struct type_conversion<cld::User> {
+        typedef values base_type;
+
+        static void from_base(const values &v, indicator, cld::User &user);
+
+        static void to_base(const cld::User &user, values &v, indicator &ind);
+    };
+}

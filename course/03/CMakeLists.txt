@@ -13,6 +13,9 @@ message("Compiler ${CMAKE_CXX_COMPILER} version ${CMAKE_CXX_COMPILER_VERSION}")
 add_library(
         db-rest
         src/entity/User.cpp
+        src/property/ConfigReader.cpp
+        src/property/Property.cpp
+        src/property/PropertyHolder.cpp
         src/repository/UserRepository.cpp
         src/repository/SessionFactory.cpp
 )
