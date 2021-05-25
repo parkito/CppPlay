@@ -8,14 +8,10 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     software-properties-common apt-utils git libpq-dev openssh-server build-essential gdb gdbserver rsync vim cmake valgrind fish ltrace strace \
     && add-apt-repository ppa:ubuntu-toolchain-r/test \
     && add-apt-repository universe \
-    && apt update && apt-get install -y gcc-11 g++-11 libfmt-dev \
+    && apt update && apt-get install -y gcc-10 g++-10 libfmt-dev \
     libboost-dev libboost-all-dev manpages-dev stl-manual libloki-dev libspdlog-dev \
-    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 30 \
-    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 30 \
-    && update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30 \
-    && update-alternatives --set cc /usr/bin/gcc \
-    && update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30 \
-    && update-alternatives --set c++ /usr/bin/g++ \
+    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10 \
+    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10 \
     && mkdir /var/run/sshd \
     && echo 'root:root' | chpasswd \
     && sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
