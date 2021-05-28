@@ -1,5 +1,7 @@
-//
-// Created by artyom.karnov on 5/27/21.
-//
 
 #include "ItalianPizza.h"
+
+void ItalianPizza::cook() {
+  std::cout << "Italian:";
+  printComponents(*this);
+}

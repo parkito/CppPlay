@@ -1,18 +1,23 @@
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
-project("CppPlay")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+project("CppPlay")
+
 add_library(
         patterns
         src/patterns/creational/builder/telescoping/Person.cpp
+        src/patterns/creational/factory_method/AbstractPizza.cpp
+        src/patterns/creational/factory_method/NyPizza.cpp
+        src/patterns/creational/factory_method/ItalianPizza.cpp
+        src/patterns/creational/factory_method/PizzaFactory.cpp
 )
 
 #set(CXXFLAGS ${CXXFLAGS} -std=c++2a)
 add_compile_options(-std=c++2a)
-message("Version ${CMAKE_CXX_COMPILER_VERSION}")
+message("Compiler ${CMAKE_CXX_COMPILER} version ${CMAKE_CXX_COMPILER_VERSION}")
 
 add_executable(main1 src/basics/01_hello.cpp src/basics/20_vacabluary.cpp)
 add_executable(main2 src/basics/02_type.cpp)
@@ -46,7 +51,8 @@ add_executable(main37 src/basics/37_virtual.cpp)
 
 add_executable(exers1 src/exers/SharedPtr.cpp)
 
-add_executable(patterns1 src/patterns/creational/builder/Builders.cpp)
+add_executable(builder src/patterns/creational/builder/BuildeTest.cpp)
+add_executable(factory_method src/patterns/creational/factory_method/FactoryMethodTest.cpp)
 
 add_executable(language_01 src/language/01_namespace.cpp)
 add_executable(language_02 src/language/02_literals.cpp)
@@ -69,10 +75,17 @@ add_executable(language_17 src/language/17_type_alias.cpp)
 target_include_directories(
         patterns
         PUBLIC
+        src/patterns/common
         src/patterns/creational/builder/telescoping
+        src/patterns/creational/factory_method
 )
 
 target_link_libraries(
-        patterns1
+        builder
+        patterns
+)
+
+target_link_libraries(
+        factory_method
         patterns
 )

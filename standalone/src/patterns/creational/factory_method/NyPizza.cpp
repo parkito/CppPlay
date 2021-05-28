@@ -1,4 +1,6 @@
-//
-// Created by artyom.karnov on 5/27/21.
-//
+#include "NyPizza.h"
 
+void NyPizza::cook() {
+  std::cout << "NYPizza:";
+  printComponents(*this);
+}

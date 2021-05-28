@@ -30,6 +30,7 @@ target_include_directories(
         PUBLIC
         src/entity
         src/repository
+        src/property
         /usr/local/include/soci
         /usr/include/postgresql
 )

@@ -1,4 +1,6 @@
-//
-// Created by artyom.karnov on 5/27/21.
-//
+#include "AbstractPizza.h"
 
+int main() {
+  auto pizza1 = PizzaFactory::prepare(Size::big, PizzaType::norishing);
+  pizza1->cook();
+}
