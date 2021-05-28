@@ -1,8 +1,0 @@
-//
-// Created by artyom.karnov on 5/27/21.
-//
-
-#ifndef CPPPLAY_FACTORYMETHODTEST_H
-#define CPPPLAY_FACTORYMETHODTEST_H
-
-#endif // CPPPLAY_FACTORYMETHODTEST_H
